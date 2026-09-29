@@ -69,6 +69,16 @@ a {
   text-decoration: none;
 }
 
+/* Keep keyboard navigation visible and section links comfortably positioned. */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+[id] {
+  scroll-margin-top: 2rem;
+}
+
 button,
 input,
 textarea,

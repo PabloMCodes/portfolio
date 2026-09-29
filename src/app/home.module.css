@@ -1,0 +1,353 @@
+/* Shared page details: quiet labels, accessible links, and a compact header. */
+.home {
+  --rule: #d4d5cf;
+}
+
+.header,
+.navigation,
+.heroLabel,
+.heroBottom,
+.heroFootnote,
+.sectionHeading,
+.sketchHeading,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.header {
+  min-height: 6.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+
+.wordmark span {
+  margin-left: 0.12em;
+}
+
+.navigation {
+  gap: clamp(1rem, 3vw, 2.5rem);
+  font-size: 0.875rem;
+}
+
+.navigation a,
+.footer a {
+  padding-block: 0.65rem;
+}
+
+.home a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.label,
+.heroFootnote,
+.tags,
+.sketch,
+.projectNote {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  line-height: 1.6;
+}
+
+.label {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skipLink {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(-200%);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+/* The opening uses typography and whitespace as its primary visual elements. */
+.hero {
+  padding-top: clamp(3rem, 6vw, 6rem);
+}
+
+.heroLabel {
+  color: var(--muted-foreground);
+}
+
+.heroTitle {
+  margin-block: 2.5rem 3rem;
+  font-size: clamp(2.75rem, 6.8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.065em;
+}
+
+.heroTitle span {
+  color: var(--muted-foreground);
+}
+
+.heroBottom {
+  align-items: flex-end;
+}
+
+.introCopy {
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 0.65rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-bottom: 1px solid currentColor;
+}
+
+.heroFootnote {
+  margin-top: clamp(3rem, 6vw, 6rem);
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--rule);
+  color: var(--muted-foreground);
+}
+
+/* Work previews have one featured project followed by two quieter summaries. */
+.section {
+  padding-top: var(--section-space);
+}
+
+.sectionHeading {
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.section h2 {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.sectionHeading > p {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.featuredProject {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  background: #22251f;
+  color: #f4f4f1;
+}
+
+.featuredCopy {
+  padding: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.featuredCopy h3 {
+  margin-block: 2.5rem 1.5rem;
+  font-size: clamp(2rem, 3.7vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.featuredCopy > p:not(.label):not(.projectName) {
+  color: #c9ccc2;
+  font-size: 0.9375rem;
+}
+
+.projectName {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+}
+
+.featuredCopy .tags {
+  color: #c9ccc2;
+}
+
+.sketch {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background: #2c3028;
+  color: #d3dac6;
+}
+
+.sketchHeading {
+  align-items: flex-start;
+  font-size: 0.625rem;
+}
+
+.sketch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 2rem;
+}
+
+.sketch figcaption {
+  padding-top: 1rem;
+  border-top: 1px solid #52594b;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-top: 3rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.project h3 {
+  margin-block: 1.5rem 1rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.project > p:not(.label) {
+  color: var(--muted-foreground);
+}
+
+.project .tags {
+  margin-bottom: 2rem;
+}
+
+.projectNote {
+  margin-top: auto;
+}
+
+/* Background and a concrete engineering anecdote close the page. */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  margin-top: 3rem;
+  padding-bottom: var(--section-space);
+  border-top: 1px solid var(--rule);
+}
+
+.aboutCopy > p + p {
+  margin-top: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.fieldNote {
+  margin-top: 2rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--rule);
+}
+
+.fieldNote p {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.footer {
+  min-height: 7rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8125rem;
+}
+
+.footer p span {
+  color: var(--muted-foreground);
+}
+
+/* Stack the editorial layout at smaller widths; navigation stays in view. */
+@media (max-width: 900px) {
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .featuredProject {
+    grid-template-columns: 1fr;
+  }
+
+  .sketch svg {
+    max-width: 35rem;
+    align-self: center;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    min-height: 5.5rem;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding-block: 1rem;
+  }
+
+  .wordmark {
+    font-size: 1.125rem;
+  }
+
+  .navigation {
+    gap: 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .heroLabel > :last-child {
+    display: none;
+  }
+
+  .heroBottom,
+  .heroFootnote {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .heroFootnote {
+    gap: 0.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(2.25rem, 8.5vw, 3.75rem);
+  }
+
+  .projectGrid,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .footer > p {
+    flex-basis: 100%;
+  }
+}
