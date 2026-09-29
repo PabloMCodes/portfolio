@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/container";
+import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "./home.module.css";
 
 // Small navigation stays visible and usable without a mobile-menu script.
@@ -15,6 +16,7 @@ function Header() {
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
       </nav>
+      <ThemeToggle />
     </header>
   );
 }

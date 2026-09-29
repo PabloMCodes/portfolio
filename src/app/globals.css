@@ -1,11 +1,60 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #f4f4f1;
   --foreground: #171816;
   --muted-foreground: #656761;
+  --rule: #d4d5cf;
+  --project-background: #22251f;
+  --project-foreground: #f4f4f1;
+  --project-muted: #c9ccc2;
+  --sketch-background: #2c3028;
+  --sketch-foreground: #d3dac6;
+  --sketch-rule: #52594b;
   --page-gutter: clamp(1.25rem, 4vw, 4rem);
   --section-space: clamp(5rem, 10vw, 10rem);
+}
+
+/* Midnight blue surfaces and soft, cool text keep dark mode easy on the eyes. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0d182b;
+  --foreground: #e7edf7;
+  --muted-foreground: #a6b6cf;
+  --rule: #2c3e58;
+  --project-background: #13223a;
+  --project-foreground: #e7edf7;
+  --project-muted: #b6c6dd;
+  --sketch-background: #192c47;
+  --sketch-foreground: #ceddf1;
+  --sketch-rule: #405674;
+}
+
+/* Labels follow the document theme, including the initial saved preference. */
+.theme-toggle {
+  cursor: pointer;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--foreground);
+  padding: 0.65rem 0.9rem;
+  min-height: 44px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: currentColor;
+}
+
+[data-theme-label="dark"],
+:root[data-theme="dark"] [data-theme-label="light"] {
+  display: none;
+}
+
+:root[data-theme="dark"] [data-theme-label="dark"] {
+  display: inline;
 }
 
 * {

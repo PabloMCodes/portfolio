@@ -1,7 +1,5 @@
 /* Shared page details: quiet labels, accessible links, and a compact header. */
-.home {
-  --rule: #d4d5cf;
-}
+.home { isolation: isolate; }
 
 .header,
 .navigation,
@@ -18,6 +16,8 @@
 }
 
 .header {
+  flex-wrap: wrap;
+  padding-block: 1rem;
   min-height: 6.5rem;
   border-bottom: 1px solid var(--rule);
 }
@@ -33,6 +33,7 @@
 }
 
 .navigation {
+  margin-left: auto;
   flex-wrap: wrap;
   gap: clamp(1rem, 3vw, 2.5rem);
   font-size: 0.875rem;
@@ -186,8 +187,8 @@
 .featuredProject {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  background: #22251f;
-  color: #f4f4f1;
+  background: var(--project-background);
+  color: var(--project-foreground);
 }
 
 .featuredCopy {
@@ -201,7 +202,7 @@
 }
 
 .featuredCopy > p:not(.label) {
-  color: #c9ccc2;
+  color: var(--project-muted);
   font-size: 0.9375rem;
 }
 
@@ -215,7 +216,7 @@
 }
 
 .featuredCopy .tags {
-  color: #c9ccc2;
+  color: var(--project-muted);
 }
 
 .sketch {
@@ -225,8 +226,8 @@
   min-width: 0;
   margin: 0;
   padding: clamp(1.5rem, 3vw, 3rem);
-  background: #2c3028;
-  color: #d3dac6;
+  background: var(--sketch-background);
+  color: var(--sketch-foreground);
 }
 
 .sketchHeading {
@@ -243,7 +244,7 @@
 
 .sketch figcaption {
   padding-top: 1rem;
-  border-top: 1px solid #52594b;
+  border-top: 1px solid var(--sketch-rule);
 }
 
 .projectGrid {
@@ -417,6 +418,7 @@
   }
 
   .navigation {
+    margin-left: 0;
     gap: 1rem;
     font-size: 0.8125rem;
   }
