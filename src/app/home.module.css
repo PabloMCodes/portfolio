@@ -33,6 +33,7 @@
 }
 
 .navigation {
+  flex-wrap: wrap;
   gap: clamp(1rem, 3vw, 2.5rem);
   font-size: 0.875rem;
 }
@@ -50,8 +51,7 @@
 .label,
 .heroFootnote,
 .tags,
-.sketch,
-.projectNote {
+.sketch {
   font-family: var(--font-mono), monospace;
   font-size: 0.6875rem;
   line-height: 1.6;
@@ -200,14 +200,9 @@
   line-height: 1.1;
 }
 
-.featuredCopy > p:not(.label):not(.projectName) {
+.featuredCopy > p:not(.label) {
   color: #c9ccc2;
   font-size: 0.9375rem;
-}
-
-.projectName {
-  margin-bottom: 0.75rem;
-  font-weight: 500;
 }
 
 .tags {
@@ -279,8 +274,9 @@
   margin-bottom: 2rem;
 }
 
-.projectNote {
-  margin-top: auto;
+.role {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
 }
 
 .nasaProject,
@@ -304,21 +300,38 @@
   object-position: center top;
 }
 
-/* Background and a concrete engineering anecdote close the page. */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 6rem);
-  margin-top: 3rem;
+/* Simple skill lists keep the toolkit readable without proficiency ratings. */
+.skills {
   padding-bottom: var(--section-space);
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.skillGroup {
+  padding-top: 1.5rem;
   border-top: 1px solid var(--rule);
 }
 
-.aboutCopy > p + p {
-  margin-top: 1.25rem;
-  color: var(--muted-foreground);
+.skillGroup h3 {
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
 }
 
+.skillGroup ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  line-height: 2;
+}
+
+/* Keep the debugging anecdote with the project it describes. */
 .fieldNote {
   margin-top: 2rem;
   padding-left: 1.25rem;
@@ -344,6 +357,10 @@
 
 /* Stack the editorial layout at smaller widths; navigation stays in view. */
 @media (max-width: 900px) {
+  .skillGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .heroLayout {
     grid-template-columns: minmax(0, 1fr) 240px;
     gap: 1.5rem;
@@ -424,7 +441,7 @@
 
   .projectGrid,
   .productionProject,
-  .about {
+  .skillGrid {
     grid-template-columns: 1fr;
   }
 

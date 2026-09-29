@@ -10,36 +10,41 @@ function Header() {
         pablo mendoza<span aria-hidden="true">.</span>
       </a>
       <nav aria-label="Main navigation" className={styles.navigation}>
-        <a href="#work">Work</a>
         <a href="#about">About</a>
-        <a href="https://github.com/PabloMCodes">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
       </nav>
     </header>
   );
 }
 
-// The opening sets the engineering theme and points directly to selected work.
-function Introduction() {
+// A personal introduction opens the page with confirmed background and a portrait.
+function About() {
   return (
-    <section className={styles.hero} aria-labelledby="intro-title">
+    <section id="about" className={styles.hero} aria-labelledby="intro-title">
       <div className={styles.heroLabel}>
-        <span className={styles.label}>Software · Intelligence · Physical systems</span>
-        <span className={styles.label}>Portfolio / 01</span>
+        <span className={styles.label}>01 / About me</span>
+        <span className={styles.label}>Computer science · UCF</span>
       </div>
       <div className={styles.heroLayout}>
         <div>
           <h1 id="intro-title" className={styles.heroTitle}>
-            Intelligent systems.<br />
-            <span>Real-world impact.</span>
+            Hi, I’m Pablo<span>.</span>
           </h1>
           <div className={styles.heroBottom}>
             <p className={styles.introCopy}>
-              I’m Pablo, a computer science student and engineer building across
-              software, AI, and robotics. I build intelligent systems that interact
-              with the real world.
+              I’m a Computer Science student at the University of Central Florida.
+              My work brings together software, AI, and robotics—from web
+              applications to robots that move through the real world.
             </p>
-            <a href="#work" className={styles.textLink}>
-              Explore my work <span aria-hidden="true">↓</span>
+            <p className={styles.introCopy}>
+              I’ve spent summers building software at NASA and Credit Karma,
+              and a hackathon connecting hardware, code, and a robot named WALL-Y.
+              This is a little of what I’ve been working on.
+            </p>
+            <a href="#projects" className={styles.textLink}>
+              See my projects <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>
@@ -102,23 +107,21 @@ function FleetSketch() {
   );
 }
 
-// Public summaries introduce the work without implying case-study pages exist.
-function SelectedWork() {
+// Hackathon projects stay separate from professional experience.
+function Projects() {
   return (
-    <section id="work" className={styles.section} aria-labelledby="work-title">
+    <section id="projects" className={styles.section} aria-labelledby="projects-title">
       <div className={styles.sectionHeading}>
         <div>
-          <p className={styles.label}>01 / Selected work</p>
-          <h2 id="work-title">From code to consequence.</h2>
+          <p className={styles.label}>03 / Things I’ve built</p>
+          <h2 id="projects-title">Projects</h2>
         </div>
-        <p>Three perspectives on engineering:<br />physical systems, science, and production software.</p>
       </div>
 
       <article className={styles.featuredProject}>
         <div className={styles.featuredCopy}>
           <p className={styles.label}>ShellHacks 2026 / Robotics</p>
-          <h3>One fleet.<br />Many moving parts.</h3>
-          <p className={styles.projectName}>Autonomous Multi-Robot Fleet</p>
+          <h3>Autonomous<br />Multi-Robot Fleet</h3>
           <p>
             Physical robots, overhead vision, and centralized planning. My work
             connected firmware, hardware, communication, autonomous navigation,
@@ -130,7 +133,29 @@ function SelectedWork() {
         </div>
         <FleetSketch />
       </article>
+      <div className={styles.fieldNote}>
+        <span className={styles.label}>Meet WALL-Y</span>
+        <p>
+          One of our robots was named WALL-Y. Getting the fleet running took
+          more than code: motor noise was disconnecting the ESP32s. Investigating
+          power behavior, adding suppression capacitors, and improving power
+          handling helped us get reliable operation.
+        </p>
+      </div>
+    </section>
+  );
+}
 
+// Only confirmed internships appear in the work experience section.
+function WorkExperience() {
+  return (
+    <section id="experience" className={styles.section} aria-labelledby="experience-title">
+      <div className={styles.sectionHeading}>
+        <div>
+          <p className={styles.label}>02 / Where I’ve worked</p>
+          <h2 id="experience-title">Work experience</h2>
+        </div>
+      </div>
       <div className={styles.projectGrid}>
         <article className={`${styles.project} ${styles.nasaProject}`}>
           {/* The photo adds personal context without implying a mission role. */}
@@ -145,8 +170,9 @@ function SelectedWork() {
             <figcaption>A moment beyond the code / NASA</figcaption>
           </figure>
           <div className={styles.projectCopy}>
-            <p className={styles.label}>02 / NASA Kennedy Space Center</p>
-            <h3>Software supporting science.</h3>
+            <p className={styles.label}>Summer 2026</p>
+            <h3>NASA Kennedy Space Center</h3>
+            <p className={styles.role}>Software Engineering Intern</p>
             <p>
               Built an internal full-stack platform supporting payload and science
               experiment processing analysis during my summer 2026 internship.
@@ -154,13 +180,13 @@ function SelectedWork() {
             <ul className={styles.tags} aria-label="NASA technologies">
               <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
             </ul>
-            <p className={styles.projectNote}>Software Engineering Intern · Summer 2026</p>
           </div>
         </article>
         <article className={`${styles.project} ${styles.productionProject}`}>
           <div>
-            <p className={styles.label}>03 / Credit Karma · Intuit</p>
-            <h3>Engineering in production.</h3>
+            <p className={styles.label}>Summer 2025</p>
+            <h3>Credit Karma / Intuit</h3>
+            <p className={styles.role}>Software Engineering Intern · User Management</p>
           </div>
           <div className={styles.projectCopy}>
             <p>
@@ -170,7 +196,6 @@ function SelectedWork() {
             <ul className={styles.tags} aria-label="Credit Karma technologies">
               <li>React / TypeScript</li><li>GraphQL</li><li>Scala</li>
             </ul>
-            <p className={styles.projectNote}>Software Engineering Intern · Summer 2025</p>
           </div>
         </article>
       </div>
@@ -178,33 +203,33 @@ function SelectedWork() {
   );
 }
 
-// A concise background section gives context without a separate About page.
-function About() {
+// Skills reflect tools used in the documented internships and robotics project.
+function Skills() {
+  const groups = [
+    { title: "Languages", items: ["TypeScript", "Python", "Scala"] },
+    { title: "Web & backend", items: ["React", "FastAPI", "GraphQL", "SQLite", "Thrift"] },
+    { title: "Infrastructure & delivery", items: ["Docker", "AWS", "CI/CD", "Testing", "Splunk"] },
+    { title: "Robotics & AI", items: ["ESP32", "Bluetooth communication", "Computer vision", "ArUco localization", "Agent orchestration"] },
+  ];
+
   return (
-    <section id="about" className={`${styles.section} ${styles.about}`} aria-labelledby="about-title">
-      <div>
-        <p className={styles.label}>02 / A little context</p>
-        <h2 id="about-title">Across the stack.<br />Beyond the screen.</h2>
-      </div>
-      <div className={styles.aboutCopy}>
-        <p>
-          My work spans software, AI, embedded systems, and the hardware they
-          connect to. I’m studying Computer Science at the University of Central
-          Florida, with an expected graduation in December 2027.
-        </p>
-        <p>
-          Alongside NASA and Credit Karma, my experience includes Motorola
-          Solutions and Limbitless Solutions—adding physical engineering and
-          product experience to my software background.
-        </p>
-        <div className={styles.fieldNote}>
-          <span className={styles.label}>A lesson from the work</span>
-          <p>
-            Sometimes a software disconnect starts at a motor. On our robot
-            fleet, investigating electrical noise and power behavior led to
-            suppression capacitors, improved power handling, and reliable operation.
-          </p>
+    <section id="skills" className={`${styles.section} ${styles.skills}`} aria-labelledby="skills-title">
+      <div className={styles.sectionHeading}>
+        <div>
+          <p className={styles.label}>04 / My toolkit</p>
+          <h2 id="skills-title">Skills</h2>
         </div>
+        <p>Tools I’ve used across my work and projects.</p>
+      </div>
+      <div className={styles.skillGrid}>
+        {groups.map(({ title, items }) => (
+          <div key={title} className={styles.skillGroup}>
+            <h3>{title}</h3>
+            <ul>
+              {items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -217,9 +242,10 @@ export default function Home() {
       <a href="#main" className={styles.skipLink}>Skip to content</a>
       <Header />
       <main id="main" tabIndex={-1}>
-        <Introduction />
-        <SelectedWork />
         <About />
+        <WorkExperience />
+        <Projects />
+        <Skills />
       </main>
       {/* A small closing row provides a real destination and a way back up. */}
       <footer className={styles.footer}>

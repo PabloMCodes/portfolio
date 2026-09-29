@@ -75,8 +75,10 @@ Relevant technologies and practices include:
 
 Use this experience to demonstrate production software-engineering experience without exposing proprietary information.
 
-## Secondary Experience
+## Content Accuracy and Homepage Structure
 
-Experience with Motorola Solutions and Limbitless Solutions demonstrates additional physical-engineering and product experience.
+The confirmed employers in this portfolio are NASA Kennedy Space Center and Credit Karma / Intuit. Previously included secondary-employer claims were incorrect and have been removed at Pablo's request. Do not import experience from other people's conversations.
+
+Organize the homepage around About Me, Work Experience, Projects, and Skills. Keep employment separate from personal and hackathon projects. The About Me section should be personal and conversational; ask Pablo for hobbies and personal details rather than inventing them.
 
 Never invent missing facts.
