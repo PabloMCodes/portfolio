@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/container";
 import styles from "./home.module.css";
 
@@ -25,19 +26,35 @@ function Introduction() {
         <span className={styles.label}>Software · Intelligence · Physical systems</span>
         <span className={styles.label}>Portfolio / 01</span>
       </div>
-      <h1 id="intro-title" className={styles.heroTitle}>
-        Intelligent systems.<br />
-        <span>Real-world impact.</span>
-      </h1>
-      <div className={styles.heroBottom}>
-        <p className={styles.introCopy}>
-          I’m Pablo, a computer science student and engineer building across
-          software, AI, and robotics. I build intelligent systems that interact
-          with the real world.
-        </p>
-        <a href="#work" className={styles.textLink}>
-          Explore my work <span aria-hidden="true">↓</span>
-        </a>
+      <div className={styles.heroLayout}>
+        <div>
+          <h1 id="intro-title" className={styles.heroTitle}>
+            Intelligent systems.<br />
+            <span>Real-world impact.</span>
+          </h1>
+          <div className={styles.heroBottom}>
+            <p className={styles.introCopy}>
+              I’m Pablo, a computer science student and engineer building across
+              software, AI, and robotics. I build intelligent systems that interact
+              with the real world.
+            </p>
+            <a href="#work" className={styles.textLink}>
+              Explore my work <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+        {/* Preserve the full portrait and reserve its space while it loads. */}
+        <figure className={styles.portrait}>
+          <Image
+            src="/images/pablo-portrait.png"
+            alt="Pablo standing in front of a large cylindrical spacecraft structure."
+            width={488}
+            height={719}
+            sizes="(max-width: 600px) 78vw, (max-width: 900px) 240px, 320px"
+            preload
+          />
+          <figcaption><span>Behind the code</span><span>Pablo Mendoza</span></figcaption>
+        </figure>
       </div>
       <div className={styles.heroFootnote}>
         <span>Computer Science / University of Central Florida</span>
@@ -115,29 +132,46 @@ function SelectedWork() {
       </article>
 
       <div className={styles.projectGrid}>
-        <article className={styles.project}>
-          <p className={styles.label}>02 / NASA Kennedy Space Center</p>
-          <h3>Software supporting science.</h3>
-          <p>
-            Built an internal full-stack platform supporting payload and science
-            experiment processing analysis during my summer 2026 internship.
-          </p>
-          <ul className={styles.tags} aria-label="NASA technologies">
-            <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
-          </ul>
-          <p className={styles.projectNote}>Software Engineering Intern · Summer 2026</p>
+        <article className={`${styles.project} ${styles.nasaProject}`}>
+          {/* The photo adds personal context without implying a mission role. */}
+          <figure className={styles.nasaPhoto}>
+            <Image
+              src="/images/nasa-group.png"
+              alt="Pablo posing with three people in blue flight suits in front of a NASA backdrop."
+              width={1936}
+              height={1458}
+              sizes="(max-width: 900px) 92vw, (max-width: 1440px) 46vw, 640px"
+            />
+            <figcaption>A moment beyond the code / NASA</figcaption>
+          </figure>
+          <div className={styles.projectCopy}>
+            <p className={styles.label}>02 / NASA Kennedy Space Center</p>
+            <h3>Software supporting science.</h3>
+            <p>
+              Built an internal full-stack platform supporting payload and science
+              experiment processing analysis during my summer 2026 internship.
+            </p>
+            <ul className={styles.tags} aria-label="NASA technologies">
+              <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
+            </ul>
+            <p className={styles.projectNote}>Software Engineering Intern · Summer 2026</p>
+          </div>
         </article>
-        <article className={styles.project}>
-          <p className={styles.label}>03 / Credit Karma · Intuit</p>
-          <h3>Engineering in production.</h3>
-          <p>
-            Software engineering experience on the User Management team,
-            spanning frontend development, service infrastructure, and testing.
-          </p>
-          <ul className={styles.tags} aria-label="Credit Karma technologies">
-            <li>React / TypeScript</li><li>GraphQL</li><li>Scala</li>
-          </ul>
-          <p className={styles.projectNote}>Software Engineering Intern · Summer 2025</p>
+        <article className={`${styles.project} ${styles.productionProject}`}>
+          <div>
+            <p className={styles.label}>03 / Credit Karma · Intuit</p>
+            <h3>Engineering in production.</h3>
+          </div>
+          <div className={styles.projectCopy}>
+            <p>
+              Software engineering experience on the User Management team,
+              spanning frontend development, service infrastructure, and testing.
+            </p>
+            <ul className={styles.tags} aria-label="Credit Karma technologies">
+              <li>React / TypeScript</li><li>GraphQL</li><li>Scala</li>
+            </ul>
+            <p className={styles.projectNote}>Software Engineering Intern · Summer 2025</p>
+          </div>
         </article>
       </div>
     </section>
