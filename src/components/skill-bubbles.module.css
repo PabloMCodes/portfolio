@@ -2,18 +2,24 @@
 .controls p { color: var(--muted-foreground); font-size: 0.8125rem; }
 .controls button { flex: none; padding: 0.6rem 1rem; min-height: 44px; border: 1px solid var(--rule); border-radius: 999px; font-size: 0.75rem; cursor: pointer; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
-.group { min-width: 0; border: 1px solid var(--rule); border-radius: 1.5rem; overflow: hidden; background: radial-gradient(ellipse at 30% 20%, var(--ambient-soft), transparent 75%); }
+.group { --bubble-primary: #8fc6df; --bubble-secondary: #b6d7e5; min-width: 0; border: 1px solid color-mix(in srgb, var(--bubble-primary) 42%, var(--rule)); border-radius: 1.5rem; overflow: hidden; background: radial-gradient(ellipse at 30% 15%, color-mix(in srgb, var(--bubble-primary) 16%, var(--background)), var(--background) 78%); }
+.group:nth-child(2) { --bubble-primary: #efac5f; --bubble-secondary: #f2ca76; }
+.group:nth-child(3) { --bubble-primary: #d88770; --bubble-secondary: #e5ad83; }
+.group:nth-child(4) { --bubble-primary: #81b58c; --bubble-secondary: #a8c77e; }
 .groupHeading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.5rem 0.5rem; }
 .groupHeading h2 { font-size: 1rem; line-height: 1.4; letter-spacing: -0.02em; }
 .groupHeading span { flex: none; font-family: var(--font-mono), monospace; font-size: 0.625rem; color: var(--muted-foreground); }
 .arena { position: relative; list-style: none; padding: 0; margin: 0; min-height: 360px; }
 .arena:not([data-ready]) { display: flex; flex-wrap: wrap; gap: 0.75rem; padding: 1rem; }
-.bubble { display: grid; place-items: center; width: 100px; height: 100px; border-radius: 50%; padding: 0.65rem; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--rule)); background: radial-gradient(circle at 30% 22%, color-mix(in srgb, var(--background) 75%, white), var(--background) 65%); color: var(--foreground); box-shadow: inset 0 -5px 10px rgb(0 0 0 / 5%), 0 4px 12px rgb(0 0 0 / 6%); font-size: 0.75rem; line-height: 1.35; font-weight: 500; text-align: center; overflow-wrap: anywhere; user-select: none; touch-action: none; cursor: grab; }
+.bubble { --bubble-tone: var(--bubble-primary); display: grid; place-items: center; width: 100px; height: 100px; border-radius: 50%; padding: 0.65rem; border: 1px solid color-mix(in srgb, var(--bubble-tone) 72%, var(--foreground)); background: radial-gradient(circle at 28% 20%, color-mix(in srgb, var(--bubble-tone) 48%, white), color-mix(in srgb, var(--bubble-tone) 68%, var(--background)) 68%); color: var(--foreground); box-shadow: inset 0 -6px 12px rgb(0 0 0 / 8%), 0 5px 14px color-mix(in srgb, var(--bubble-tone) 22%, transparent); font-size: 0.75rem; line-height: 1.35; font-weight: 500; text-align: center; overflow-wrap: anywhere; user-select: none; touch-action: none; cursor: grab; }
+.arena li:nth-child(3n + 2) .bubble { --bubble-tone: var(--bubble-secondary); }
+.arena li:nth-child(3n) .bubble { --bubble-tone: color-mix(in srgb, var(--bubble-primary) 55%, var(--bubble-secondary)); }
 .arena[data-ready] .bubble { position: absolute; top: 0; left: 0; }
 .bubble:active { cursor: grabbing; border-color: var(--accent); }
 .bubble:hover { border-color: var(--accent); }
 .bubble:focus-visible, .controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .arena[data-paused="true"] .bubble { cursor: default; touch-action: pan-y; }
+:global(:root[data-theme="dark"]) .bubble { background: radial-gradient(circle at 28% 20%, color-mix(in srgb, var(--bubble-tone) 48%, white), color-mix(in srgb, var(--bubble-tone) 40%, var(--background)) 70%); border-color: color-mix(in srgb, var(--bubble-tone) 75%, white); }
 @media (max-width: 700px) {
   .grid { grid-template-columns: 1fr; }
   .controls { align-items: flex-start; flex-direction: column; }
