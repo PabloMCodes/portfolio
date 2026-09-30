@@ -87,7 +87,7 @@
 
 /* An editorial portrait puts a person beside the engineering introduction. */
 .hero {
-  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-top: clamp(1.5rem, 3vw, 3rem);
   padding-bottom: var(--section-space);
 }
 
@@ -342,7 +342,7 @@
 
 /* Work previews pair the NASA photo with its summary, then a quieter text row. */
 .section {
-  padding-top: var(--section-space);
+  padding-top: clamp(1.5rem, 3vw, 3rem);
   padding-bottom: var(--section-space);
 }
 
