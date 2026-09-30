@@ -12,7 +12,13 @@ export default function AboutPage() {
         <a href="/projects" className={styles.textLink}>See my projects <span aria-hidden="true">→</span></a>
         <a href="/images/Pablo_Mendoza_Resume.pdf" className={styles.quietLink} target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
       </div></div>
-      <figure className={styles.portrait}><Image src="/images/pablo-portrait.png" alt="Pablo standing in front of a large cylindrical spacecraft structure." width={488} height={719} sizes="(max-width: 600px) 78vw, (max-width: 900px) 240px, 320px" preload /><figcaption><span>Behind the code</span><span>Pablo Mendoza</span></figcaption></figure>
+      <figure className={styles.portrait}>
+        <div className={styles.portraitScene}>
+          <Image className={styles.portraitImage} src="/images/pablo-portrait.png" alt="Pablo standing in front of a large cylindrical spacecraft structure." width={488} height={719} sizes="(max-width: 600px) 70vw, (max-width: 900px) 240px, 350px" preload />
+          <Image className={styles.portraitStillLife} src="/images/cozy-plant-room.jpg" alt="" width={720} height={720} sizes="(max-width: 600px) 120px, 190px" />
+        </div>
+        <figcaption><span>Behind the code</span><span>Pablo Mendoza</span></figcaption>
+      </figure>
     </div>
     <div className={styles.heroFootnote}><span>Computer Science / University of Central Florida</span><span>Expected graduation — Aug 2027</span></div>
   </section></SiteShell>;

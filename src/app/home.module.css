@@ -2,13 +2,6 @@
 .home { isolation: isolate; }
 
 .header,
-.home main,
-.footer {
-  position: relative;
-  z-index: 1;
-}
-
-.header,
 .navigation,
 .heroLabel,
 .heroBottom,
@@ -122,7 +115,7 @@
 
 .heroLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   margin-top: 3rem;
@@ -130,6 +123,25 @@
 
 .portrait {
   margin: 0;
+}
+
+.portraitScene {
+  position: relative;
+}
+
+.portrait .portraitImage {
+  width: 100%;
+}
+
+.portrait .portraitStillLife {
+  position: absolute;
+  left: -4.5rem;
+  bottom: 1.25rem;
+  width: clamp(9rem, 14vw, 12rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 5px solid var(--background);
+  box-shadow: 0 1rem 2rem rgb(15 19 11 / 18%);
 }
 
 .portrait img,
@@ -545,7 +557,7 @@
   }
 
   .heroLayout {
-    grid-template-columns: minmax(0, 1fr) 240px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     gap: 1.5rem;
   }
 
@@ -584,9 +596,15 @@
   }
 
   .portrait {
-    width: 85%;
-    max-width: 320px;
+    width: 100%;
+    max-width: 340px;
     justify-self: end;
+  }
+
+  .portrait .portraitStillLife {
+    left: -1.25rem;
+    width: 38%;
+    border-width: 4px;
   }
 
   .header {
