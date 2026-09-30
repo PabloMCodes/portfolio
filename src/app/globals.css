@@ -33,11 +33,11 @@
 
 /* Crossfade the full document quickly while the celestial transition travels. */
 ::view-transition-old(root) {
-  animation: theme-fade-out 420ms ease both;
+  animation: theme-fade-out 550ms ease both;
 }
 
 ::view-transition-new(root) {
-  animation: theme-fade-in 420ms ease both;
+  animation: theme-fade-in 550ms ease both;
 }
 
 @keyframes theme-fade-out {
@@ -57,7 +57,7 @@
 .theme-fade-fallback article,
 .theme-fade-fallback figure,
 .theme-fade-fallback button {
-  transition: background-color 420ms ease, color 420ms ease, border-color 420ms ease;
+  transition: background-color 550ms ease, color 550ms ease, border-color 550ms ease;
 }
 
 /* Labels follow the document theme, including the initial saved preference. */

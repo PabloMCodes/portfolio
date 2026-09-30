@@ -25,7 +25,7 @@ export function ThemeToggle() {
       root.classList.add("theme-fade-fallback");
       void root.offsetWidth;
       applyTheme();
-      window.setTimeout(() => root.classList.remove("theme-fade-fallback"), 500);
+      window.setTimeout(() => root.classList.remove("theme-fade-fallback"), 650);
     }
 
     setCelestial(theme === "light" ? "sun" : "moon");
