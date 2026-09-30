@@ -558,25 +558,9 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.4rem;
-  border-radius: 50%;
-  background: var(--foreground);
-  color: var(--background);
-  transform: translate(-50%, 50%);
-}
-
-.launchRocket::after {
-  content: "";
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  width: 1px;
-  height: 1.5rem;
-  background: currentColor;
+  display: block;
+  width: 4rem;
+  height: 8rem;
   transform: translateX(-50%);
 }
 
@@ -584,19 +568,16 @@
   display: block;
   width: 100%;
   height: 100%;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
+  image-rendering: pixelated;
 }
 
 .nasaVisible .nasaLaunchPath {
-  animation: launch-path 2.2s ease both;
+  animation: launch-path 4s linear both;
 }
 
-.nasaVisible .launchRocket {
-  animation: rocket-launch 2.2s cubic-bezier(0.55, 0, 0.35, 1) both;
+.nasaVisible .rocketFlame {
+  transform-origin: 20px 54px;
+  animation: rocket-flame 160ms steps(2, end) 25;
 }
 
 .nasaVisible .nasaPhoto {
@@ -607,16 +588,14 @@
   animation: nasa-content-reveal 900ms 750ms ease both;
 }
 
-@keyframes rocket-launch {
-  0% { bottom: 0; opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { bottom: 100%; opacity: 0; }
+@keyframes rocket-flame {
+  0%, 100% { transform: scaleY(0.8); }
+  50% { transform: scaleY(1); }
 }
 
 @keyframes launch-path {
   0%, 100% { opacity: 0; }
-  12%, 88% { opacity: 1; }
+  4%, 94% { opacity: 1; }
 }
 
 @keyframes nasa-content-reveal {
@@ -809,7 +788,7 @@
   }
 
   .nasaLaunchPath {
-    right: 1.5rem;
+    right: 2.5rem;
     left: auto;
   }
 }

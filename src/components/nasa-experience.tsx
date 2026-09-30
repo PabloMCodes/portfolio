@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/app/home.module.css";
 
@@ -39,13 +40,35 @@ export function NasaExperience() {
       className={`${styles.project} ${styles.nasaProject} ${isVisible ? styles.nasaVisible : ""}`}
     >
       <div className={styles.nasaLaunchPath} aria-hidden="true">
-        <span className={styles.launchRocket}>
-          <svg viewBox="0 0 34 34">
-            <path d="M17 3c4 3 6 8 6 14l-3 5h-6l-3-5c0-6 2-11 6-14Z" />
-            <path d="m11 15-5 5v5l7-3m10-7 5 5v5l-7-3M15 25l2 6 2-6" />
-            <circle cx="17" cy="12" r="2.5" />
+        <motion.span
+          className={styles.launchRocket}
+          initial={{ bottom: "0%", opacity: 0 }}
+          animate={isVisible ? { bottom: ["0%", "12%", "112%"], opacity: [0, 1, 1, 0] } : undefined}
+          transition={{
+            bottom: { duration: 4, times: [0, 0.625, 1], ease: ["linear", [0.65, 0, 1, 1]] },
+            opacity: { duration: 4, times: [0, 0.04, 0.94, 1] },
+          }}
+        >
+          <svg viewBox="0 0 40 80" shapeRendering="crispEdges" fill="none">
+            <g className={styles.rocketFlame}>
+              <path fill="#e95a28" d="M10 54h20v8h-4v8h-4v8h-4v-8h-4v-8h-4Z" />
+              <path fill="#ffb640" d="M14 54h12v8h-4v10h-4V62h-4Z" />
+              <path fill="#fff1b5" d="M18 54h4v10h-4Z" />
+            </g>
+            <path fill="#17263c" d="M18 2h4v4h4v8h2v12h4v6h2v12h4v14H2V44h4V32h2v-6h4V14h2V6h4Z" />
+            <path fill="#e8e5d9" d="M14 16h12v34H14ZM8 32h4v20H8Zm20 0h4v20h-4Z" />
+            <path fill="#fff8e9" d="M14 16h6v32h-6Z" />
+            <path fill="#c7cbd0" d="M24 16h2v34h-2ZM10 34h2v16h-2Zm20 0h2v18h-2Z" />
+            <path fill="#d94e36" d="M18 6h4v4h2v6h-8v-6h2ZM6 46h6v8H4v-4h2Zm22 0h6v4h2v4h-8Z" />
+            <path fill="#e87850" d="M18 10h2v6h-4v-4h2Z" />
+            <path fill="#254b77" d="M14 20h12v8H14Z" />
+            <path fill="#85c8e5" d="M16 22h6v4h-6Z" />
+            <path fill="#fff8e9" d="M16 22h2v2h-2Z" />
+            <path fill="#254b77" d="M18 32h2v10h-2Zm4 0h2v10h-2Zm-2 2h2v4h-2Z" />
+            <path fill="#d94e36" d="M14 46h12v4H14Z" />
+            <path fill="#667487" d="M14 52h12v4H14Z" />
           </svg>
-        </span>
+        </motion.span>
       </div>
       <figure className={styles.nasaPhoto}>
         <div className={styles.nasaImageFrame}>
