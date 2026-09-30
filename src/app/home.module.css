@@ -96,11 +96,26 @@
 }
 
 .heroTitle {
-  margin-block: 0 2rem;
+  margin: 0;
   font-size: clamp(2.75rem, 5.1vw, 4.75rem);
   font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.065em;
+}
+
+.heroTitleRow {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+}
+
+.pixelPablo {
+  display: block;
+  flex: none;
+  width: clamp(7.5rem, 12vw, 10rem);
+  height: auto;
+  image-rendering: pixelated;
 }
 
 .heroTitle span {
@@ -115,7 +130,7 @@
 
 .heroLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   margin-top: 3rem;
@@ -123,25 +138,6 @@
 
 .portrait {
   margin: 0;
-}
-
-.portraitScene {
-  position: relative;
-}
-
-.portrait .portraitImage {
-  width: 100%;
-}
-
-.portrait .portraitStillLife {
-  position: absolute;
-  left: -4.5rem;
-  bottom: 1.25rem;
-  width: clamp(9rem, 14vw, 12rem);
-  aspect-ratio: 1;
-  object-fit: cover;
-  border: 5px solid var(--background);
-  box-shadow: 0 1rem 2rem rgb(15 19 11 / 18%);
 }
 
 .portrait img,
@@ -557,12 +553,18 @@
   }
 
   .heroLayout {
-    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-columns: minmax(0, 1fr) 240px;
     gap: 1.5rem;
   }
 
   .heroTitle {
     font-size: clamp(2.25rem, 4.6vw, 2.75rem);
+  }
+
+  .heroTitleRow {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .nasaProject,
@@ -596,15 +598,13 @@
   }
 
   .portrait {
-    width: 100%;
-    max-width: 340px;
+    width: 85%;
+    max-width: 320px;
     justify-self: end;
   }
 
-  .portrait .portraitStillLife {
-    left: -1.25rem;
-    width: 38%;
-    border-width: 4px;
+  .pixelPablo {
+    width: 6rem;
   }
 
   .header {

@@ -6,17 +6,17 @@ export default function AboutPage() {
   return <SiteShell currentPath="/about"><section className={styles.hero} aria-labelledby="intro-title">
     <div className={styles.heroLabel}><span className={styles.label}>About me</span><span className={styles.label}>Computer science · UCF</span></div>
     <div className={styles.heroLayout}>
-      <div><h1 id="intro-title" className={styles.heroTitle}>Hi, I’m Pablo<span>.</span></h1><div className={styles.heroBottom}>
+      <div><div className={styles.heroTitleRow}>
+        <h1 id="intro-title" className={styles.heroTitle}>Hi, I’m Pablo<span>.</span></h1>
+        <Image className={styles.pixelPablo} src="/images/pablo-pixel-laptop.png" alt="Pixel-art Pablo working at a laptop." width={160} height={155} unoptimized />
+      </div><div className={styles.heroBottom}>
         <p className={styles.introCopy}>I’m a Computer Science student at the University of Central Florida. My work brings together software, AI, and robotics—from web applications to robots that move through the real world.</p>
         <p className={styles.introCopy}>I’ve spent summers building software at NASA and Credit Karma, and a hackathon connecting hardware, code, and a robot named WALL-Y. This is a little of what I’ve been working on.</p>
         <a href="/projects" className={styles.textLink}>See my projects <span aria-hidden="true">→</span></a>
         <a href="/images/Pablo_Mendoza_Resume.pdf" className={styles.quietLink} target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
       </div></div>
       <figure className={styles.portrait}>
-        <div className={styles.portraitScene}>
-          <Image className={styles.portraitImage} src="/images/pablo-portrait.png" alt="Pablo standing in front of a large cylindrical spacecraft structure." width={488} height={719} sizes="(max-width: 600px) 70vw, (max-width: 900px) 240px, 350px" preload />
-          <Image className={styles.portraitStillLife} src="/images/cozy-plant-room.jpg" alt="" width={720} height={720} sizes="(max-width: 600px) 120px, 190px" />
-        </div>
+        <Image src="/images/pablo-portrait.png" alt="Pablo standing in front of a large cylindrical spacecraft structure." width={488} height={719} sizes="(max-width: 600px) 78vw, (max-width: 900px) 240px, 320px" preload />
         <figcaption><span>Behind the code</span><span>Pablo Mendoza</span></figcaption>
       </figure>
     </div>
