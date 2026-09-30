@@ -11,7 +11,7 @@ const navigation = [
 export function SiteShell({ children, currentPath }: { children: React.ReactNode; currentPath: string }) {
   return (
     <Container id="top" className={styles.home}>
-      <RoomAmbience />
+      <RoomAmbience page={currentPath.slice(1)} />
       <a href="#main" className={styles.skipLink}>Skip to content</a>
       <header className={styles.header}>
         <a href="/about" className={styles.wordmark} aria-label="Pablo Mendoza, about">pablo mendoza<span aria-hidden="true">.</span></a>

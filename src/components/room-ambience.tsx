@@ -1,6 +1,6 @@
-export function RoomAmbience() {
+export function RoomAmbience({ page }: { page: string }) {
   return (
-    <div className="room-ambience" aria-hidden="true">
+    <div className="room-ambience" data-room-page={page} aria-hidden="true">
       <div className="pendant-light">
         <span className="pendant-cord" />
         <span className="pendant-glow" />

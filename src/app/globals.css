@@ -100,6 +100,61 @@
   pointer-events: none;
 }
 
+/* Day mode keeps the room airy: botanical traces, not a fully lit interior. */
+:root:not([data-theme="dark"]) .pendant-light {
+  opacity: 0.24;
+}
+
+:root:not([data-theme="dark"]) .pendant-glow,
+:root:not([data-theme="dark"]) .pendant-bulb,
+:root:not([data-theme="dark"]) .table-lamp {
+  display: none;
+}
+
+:root:not([data-theme="dark"]) .room-plant {
+  opacity: 0.22;
+  filter: saturate(0.72);
+}
+
+/* Night mode becomes the actual room: warm fixtures against blue-hour walls. */
+:root[data-theme="dark"] .pendant-light {
+  opacity: 0.78;
+}
+
+:root[data-theme="dark"] .room-plant {
+  opacity: 0.58;
+  filter:
+    drop-shadow(-1px 0 rgb(239 168 90 / 18%))
+    drop-shadow(0.6rem 0.8rem 0.8rem rgb(2 8 15 / 28%));
+}
+
+:root[data-theme="dark"] .table-lamp {
+  opacity: 0.88;
+}
+
+/* Inner pages borrow the mood without recreating the entire room. */
+.room-ambience:not([data-room-page="about"]) .table-lamp,
+.room-ambience:not([data-room-page="about"]) .room-plant-right {
+  display: none;
+}
+
+.room-ambience[data-room-page="experience"] .room-plant-left {
+  opacity: 0.22;
+}
+
+.room-ambience[data-room-page="projects"] .pendant-light {
+  display: none;
+}
+
+.room-ambience[data-room-page="skills"] .room-plant-left {
+  display: none;
+}
+
+.room-ambience[data-room-page="skills"] .pendant-light {
+  right: 2rem;
+  opacity: 0.32;
+}
+
 .room-ambience::after {
   content: "";
   position: absolute;
@@ -111,8 +166,8 @@
 .pendant-light {
   position: absolute;
   top: 0;
-  right: clamp(5rem, 13vw, 13rem);
-  width: 10rem;
+  right: clamp(0.5rem, 3vw, 3rem);
+  width: 8rem;
   height: 16rem;
 }
 
@@ -129,8 +184,8 @@
   position: absolute;
   top: 5.5rem;
   left: 50%;
-  width: 24rem;
-  height: 20rem;
+  width: 19rem;
+  height: 17rem;
   border-radius: 50%;
   background: radial-gradient(circle at 50% 15%, var(--lamp-light), transparent 66%);
   transform: translateX(-50%);
@@ -141,8 +196,8 @@
   position: absolute;
   top: 7rem;
   left: 50%;
-  width: 8.5rem;
-  height: 3.8rem;
+  width: 7rem;
+  height: 3.15rem;
   border-radius: 70% 70% 45% 45%;
   background: linear-gradient(160deg, color-mix(in srgb, var(--lamp-shade) 72%, white), var(--lamp-shade) 55%);
   box-shadow: inset 0 -0.55rem 0 rgb(55 24 15 / 34%), 0 0.7rem 1.8rem rgb(39 20 10 / 18%);
@@ -151,7 +206,7 @@
 
 .pendant-bulb {
   position: absolute;
-  top: 9.5rem;
+  top: 9.1rem;
   left: 50%;
   width: 1rem;
   height: 1rem;
@@ -169,15 +224,15 @@
 
 .room-plant-left {
   bottom: -4rem;
-  left: -3.5rem;
-  width: clamp(10rem, 18vw, 16rem);
+  left: -5rem;
+  width: clamp(9rem, 15vw, 13rem);
   transform: rotate(3deg);
 }
 
 .room-plant-right {
-  right: -2.5rem;
-  bottom: -3rem;
-  width: clamp(8rem, 13vw, 12rem);
+  right: -4rem;
+  bottom: -4rem;
+  width: clamp(7rem, 11vw, 10rem);
   transform: rotate(-4deg);
 }
 
@@ -194,7 +249,7 @@
 
 .table-lamp {
   position: absolute;
-  right: clamp(1rem, 4vw, 4rem);
+  right: clamp(0.5rem, 2vw, 2rem);
   bottom: 1rem;
   width: 6rem;
   height: 9rem;
