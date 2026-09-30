@@ -86,24 +86,38 @@ export function NasaExperience() {
       </div>
       <div className={styles.nasaPipeline}>
         <div className={styles.pipelineHeading}>
-          <span className={styles.label}>Operations analysis flow</span>
+          <span className={styles.label}>Operations analysis orbit</span>
           <span aria-live="polite">0{activeStage + 1} / 0{stages.length}</span>
         </div>
-        <ol className={styles.pipelineStages} data-active={activeStage}>
-          {stages.map((stage, index) => (
-            <li key={stage.name}>
-              <button
-                type="button"
-                className={index <= activeStage ? styles.pipelineStageActive : ""}
-                aria-pressed={index === activeStage}
-                onClick={() => setActiveStage(index)}
-              >
-                <span>0{index + 1}</span>
-                {stage.name}
-              </button>
-            </li>
-          ))}
-        </ol>
+        <div className={styles.orbitSystem} data-active={activeStage}>
+          <div className={styles.orbitRing} aria-hidden="true" />
+          <div className={styles.orbitCore} aria-hidden="true">
+            <span>KSC</span>
+            <small>Analysis system</small>
+          </div>
+          <div className={styles.orbitCraft} aria-hidden="true">
+            <svg viewBox="0 0 34 34">
+              <path d="M17 3c4 3 6 8 6 14l-3 5h-6l-3-5c0-6 2-11 6-14Z" />
+              <path d="m11 15-5 5v5l7-3m10-7 5 5v5l-7-3M15 25l2 6 2-6" />
+              <circle cx="17" cy="12" r="2.5" />
+            </svg>
+          </div>
+          <ol className={styles.orbitNodes}>
+            {stages.map((stage, index) => (
+              <li key={stage.name}>
+                <button
+                  type="button"
+                  className={index === activeStage ? styles.orbitNodeActive : ""}
+                  aria-pressed={index === activeStage}
+                  onClick={() => setActiveStage(index)}
+                >
+                  <span>0{index + 1}</span>
+                  {stage.name}
+                </button>
+              </li>
+            ))}
+          </ol>
+        </div>
         <p className={styles.pipelineDetail}>{stages[activeStage].detail}</p>
       </div>
     </article>
