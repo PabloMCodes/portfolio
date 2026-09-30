@@ -334,6 +334,11 @@
   padding-top: 2.5rem;
 }
 
+.nasaProject {
+  position: relative;
+  overflow: clip;
+}
+
 .nasaPhoto,
 .creditPhoto {
   min-width: 0;
@@ -344,38 +349,6 @@
   position: relative;
   overflow: hidden;
   background: var(--project-background);
-}
-
-.nasaImageFrame::before,
-.nasaImageFrame::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.nasaImageFrame::before {
-  inset-block: 0;
-  background: var(--project-background);
-  transform: scaleY(0);
-  transform-origin: bottom;
-}
-
-.nasaImageFrame::after {
-  top: 0;
-  height: 2px;
-  background: #e7edf7;
-  box-shadow: 0 0 18px 4px rgb(231 237 247 / 55%);
-  opacity: 0;
-}
-
-.nasaVisible .nasaImageFrame::before {
-  animation: image-uncover 1.4s 0.1s cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-
-.nasaVisible .nasaImageFrame::after {
-  animation: image-scan 1.4s 0.1s cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
 .scanStatus {
@@ -391,102 +364,45 @@
   letter-spacing: 0.08em;
 }
 
-.nasaPipeline {
-  grid-column: 1 / -1;
-  width: 100%;
-  padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid var(--rule);
-}
-
-.pipelineHeading {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
-}
-
-.orbitSystem {
-  position: relative;
-  width: min(100%, 48rem);
-  aspect-ratio: 2.4 / 1;
-  margin: 1.5rem auto 0;
-}
-
-.orbitRing {
+.nasaLaunchPath {
   position: absolute;
-  inset: 12% 8%;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
+  z-index: 4;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to top, transparent, var(--rule) 18%, var(--rule) 82%, transparent);
+  opacity: 0;
+  pointer-events: none;
 }
 
-.orbitRing::before {
-  content: "";
+.launchRocket {
   position: absolute;
-  inset: 12%;
-  border: 1px dashed var(--rule);
-  border-radius: inherit;
-  opacity: 0.55;
-}
-
-.orbitCore {
-  position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 50%;
   display: grid;
   place-items: center;
-  width: clamp(5rem, 14vw, 7rem);
-  aspect-ratio: 1;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
-  background: var(--background);
-  font-family: var(--font-mono), monospace;
-  transform: translate(-50%, -50%);
-}
-
-.orbitCore span {
-  align-self: end;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  letter-spacing: 0.1em;
-}
-
-.orbitCore small {
-  align-self: start;
-  color: var(--muted-foreground);
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.orbitCraft {
-  position: absolute;
-  z-index: 3;
-  top: 22%;
-  left: 50%;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.4rem;
   border-radius: 50%;
   background: var(--foreground);
   color: var(--background);
-  transform: translate(-50%, -50%) rotate(90deg);
-  transition: top 550ms cubic-bezier(0.65, 0, 0.35, 1), left 550ms cubic-bezier(0.65, 0, 0.35, 1), transform 550ms cubic-bezier(0.65, 0, 0.35, 1);
+  transform: translate(-50%, 50%);
 }
 
-.orbitCraft::after {
+.launchRocket::after {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 88%;
-  width: 0.8rem;
-  height: 1px;
+  top: 90%;
+  left: 50%;
+  width: 1px;
+  height: 1.5rem;
   background: currentColor;
-  opacity: 0.65;
-  animation: exhaust-pulse 450ms ease-in-out infinite alternate;
+  transform: translateX(-50%);
 }
 
-.orbitCraft svg {
+.launchRocket svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -497,95 +413,37 @@
   stroke-width: 1.5;
 }
 
-.orbitSystem[data-active="1"] .orbitCraft {
-  top: 50%;
-  left: 82%;
-  transform: translate(-50%, -50%) rotate(180deg);
+.nasaVisible .nasaLaunchPath {
+  animation: launch-path 2.2s ease both;
 }
 
-.orbitSystem[data-active="2"] .orbitCraft {
-  top: 78%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(270deg);
+.nasaVisible .launchRocket {
+  animation: rocket-launch 2.2s cubic-bezier(0.55, 0, 0.35, 1) both;
 }
 
-.orbitSystem[data-active="3"] .orbitCraft {
-  top: 50%;
-  left: 18%;
-  transform: translate(-50%, -50%) rotate(360deg);
+.nasaVisible .nasaPhoto {
+  animation: nasa-content-reveal 900ms 250ms ease both;
 }
 
-.orbitNodes {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.nasaVisible .projectCopy {
+  animation: nasa-content-reveal 900ms 750ms ease both;
 }
 
-.orbitNodes li {
-  position: absolute;
-  transform: translate(-50%, -50%);
+@keyframes rocket-launch {
+  0% { bottom: 0; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { bottom: 100%; opacity: 0; }
 }
 
-.orbitNodes li:nth-child(1) { top: 12%; left: 50%; }
-.orbitNodes li:nth-child(2) { top: 50%; left: 92%; }
-.orbitNodes li:nth-child(3) { top: 88%; left: 50%; }
-.orbitNodes li:nth-child(4) { top: 50%; left: 8%; }
-
-.orbitNodes button {
-  position: relative;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 2.25rem;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  background: var(--background);
-  color: var(--muted-foreground);
-  font-size: 0.8125rem;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: color 250ms ease, background 250ms ease, border-color 250ms ease;
+@keyframes launch-path {
+  0%, 100% { opacity: 0; }
+  12%, 88% { opacity: 1; }
 }
 
-.orbitNodes button:hover,
-.orbitNodes button:focus-visible,
-.orbitNodes .orbitNodeActive {
-  border-color: var(--foreground);
-  background: var(--foreground);
-  color: var(--background);
-}
-
-.orbitNodes button span {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.5625rem;
-}
-
-.pipelineDetail {
-  min-height: 1.6em;
-  margin-top: 1.5rem;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-}
-
-@keyframes image-uncover {
-  from { transform: scaleY(1); }
-  to { transform: scaleY(0); }
-}
-
-@keyframes image-scan {
-  0% { top: 0; opacity: 0; }
-  8% { opacity: 1; }
-  92% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-@keyframes exhaust-pulse {
-  from { opacity: 0.2; transform: scaleX(0.45); transform-origin: right; }
-  to { opacity: 0.75; transform: scaleX(1); transform-origin: right; }
+@keyframes nasa-content-reveal {
+  from { opacity: 0; transform: translateY(1.5rem); filter: blur(5px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 /* A light bottom crop removes the screenshot edge while keeping everyone visible. */
@@ -777,39 +635,19 @@
     flex-basis: 100%;
   }
 
-  .orbitSystem {
-    aspect-ratio: 1.35 / 1;
-    margin-block: 2rem;
-  }
-
-  .orbitNodes button {
-    padding: 0.4rem 0.55rem;
-    font-size: 0.6875rem;
-  }
-
-  .orbitCraft {
-    width: 1.7rem;
-    height: 1.7rem;
+  .nasaLaunchPath {
+    right: 1.5rem;
+    left: auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nasaVisible .nasaImageFrame::before,
-  .nasaVisible .nasaImageFrame::after {
-    animation: none;
-  }
-
-  .nasaImageFrame::before,
-  .nasaImageFrame::after {
+  .nasaLaunchPath {
     display: none;
   }
 
-  .orbitCraft,
-  .orbitNodes button {
-    transition: none;
-  }
-
-  .orbitCraft::after {
+  .nasaVisible .nasaPhoto,
+  .nasaVisible .projectCopy {
     animation: none;
   }
 }

@@ -4,17 +4,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/app/home.module.css";
 
-const stages = [
-  { name: "Input", detail: "Structured analysis inputs enter the workflow." },
-  { name: "API", detail: "FastAPI validates requests and creates persistent jobs." },
-  { name: "Worker", detail: "Background execution handles long-running analysis and progress." },
-  { name: "Result", detail: "Persisted results and status updates return to the React interface." },
-];
-
 export function NasaExperience() {
   const articleRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [activeStage, setActiveStage] = useState(0);
 
   useEffect(() => {
     const article = articleRef.current;
@@ -23,7 +15,6 @@ export function NasaExperience() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const frame = window.requestAnimationFrame(() => {
         setIsVisible(true);
-        setActiveStage(stages.length - 1);
       });
       return () => window.cancelAnimationFrame(frame);
     }
@@ -42,17 +33,20 @@ export function NasaExperience() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isVisible || activeStage >= stages.length - 1) return;
-    const timer = window.setTimeout(() => setActiveStage((stage) => stage + 1), 650);
-    return () => window.clearTimeout(timer);
-  }, [activeStage, isVisible]);
-
   return (
     <article
       ref={articleRef}
       className={`${styles.project} ${styles.nasaProject} ${isVisible ? styles.nasaVisible : ""}`}
     >
+      <div className={styles.nasaLaunchPath} aria-hidden="true">
+        <span className={styles.launchRocket}>
+          <svg viewBox="0 0 34 34">
+            <path d="M17 3c4 3 6 8 6 14l-3 5h-6l-3-5c0-6 2-11 6-14Z" />
+            <path d="m11 15-5 5v5l7-3m10-7 5 5v5l-7-3M15 25l2 6 2-6" />
+            <circle cx="17" cy="12" r="2.5" />
+          </svg>
+        </span>
+      </div>
       <figure className={styles.nasaPhoto}>
         <div className={styles.nasaImageFrame}>
           <Image
@@ -62,7 +56,7 @@ export function NasaExperience() {
             height={1458}
             sizes="(max-width: 900px) 92vw, (max-width: 1440px) 46vw, 640px"
           />
-          <span className={styles.scanStatus} aria-hidden="true">IMAGE LINK / KSC</span>
+          <span className={styles.scanStatus} aria-hidden="true">KSC / SUMMER 2026</span>
         </div>
         <figcaption>A moment beyond the code / NASA</figcaption>
       </figure>
@@ -83,42 +77,6 @@ export function NasaExperience() {
         <ul className={styles.tags} aria-label="NASA technologies">
           <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
         </ul>
-      </div>
-      <div className={styles.nasaPipeline}>
-        <div className={styles.pipelineHeading}>
-          <span className={styles.label}>Operations analysis orbit</span>
-          <span aria-live="polite">0{activeStage + 1} / 0{stages.length}</span>
-        </div>
-        <div className={styles.orbitSystem} data-active={activeStage}>
-          <div className={styles.orbitRing} aria-hidden="true" />
-          <div className={styles.orbitCore} aria-hidden="true">
-            <span>KSC</span>
-            <small>Analysis system</small>
-          </div>
-          <div className={styles.orbitCraft} aria-hidden="true">
-            <svg viewBox="0 0 34 34">
-              <path d="M17 3c4 3 6 8 6 14l-3 5h-6l-3-5c0-6 2-11 6-14Z" />
-              <path d="m11 15-5 5v5l7-3m10-7 5 5v5l-7-3M15 25l2 6 2-6" />
-              <circle cx="17" cy="12" r="2.5" />
-            </svg>
-          </div>
-          <ol className={styles.orbitNodes}>
-            {stages.map((stage, index) => (
-              <li key={stage.name}>
-                <button
-                  type="button"
-                  className={index === activeStage ? styles.orbitNodeActive : ""}
-                  aria-pressed={index === activeStage}
-                  onClick={() => setActiveStage(index)}
-                >
-                  <span>0{index + 1}</span>
-                  {stage.name}
-                </button>
-              </li>
-            ))}
-          </ol>
-        </div>
-        <p className={styles.pipelineDetail}>{stages[activeStage].detail}</p>
       </div>
     </article>
   );
