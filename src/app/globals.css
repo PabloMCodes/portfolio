@@ -48,6 +48,73 @@
   border-color: currentColor;
 }
 
+.celestial-transition {
+  position: fixed;
+  top: 72vh;
+  left: -7rem;
+  z-index: 100;
+  width: clamp(4.5rem, 8vw, 7rem);
+  aspect-ratio: 1;
+  pointer-events: none;
+  animation: celestial-arc 1.65s cubic-bezier(0.45, 0, 0.25, 1) both;
+  will-change: top, left, transform, opacity;
+}
+
+.celestial-transition svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.celestial-transition[data-celestial="sun"] {
+  color: #f4a928;
+  filter: drop-shadow(0 0 18px rgb(244 169 40 / 55%));
+}
+
+.celestial-transition[data-celestial="sun"] svg {
+  fill: currentColor;
+}
+
+.sun-rays {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 4;
+  transform-origin: center;
+  animation: sun-spin 4s linear infinite;
+}
+
+.celestial-transition[data-celestial="moon"] {
+  color: #dbe7fb;
+  filter: drop-shadow(0 0 18px rgb(168 197 239 / 48%));
+}
+
+.celestial-transition[data-celestial="moon"] svg {
+  fill: currentColor;
+}
+
+.moon-star {
+  animation: star-pulse 650ms ease-in-out infinite alternate;
+}
+
+@keyframes celestial-arc {
+  0% { top: 72vh; left: -7rem; opacity: 0; transform: rotate(-20deg) scale(0.72); }
+  12% { opacity: 1; }
+  48% { top: 8vh; left: calc(50vw - 3.5rem); opacity: 1; transform: rotate(8deg) scale(1); }
+  88% { opacity: 1; }
+  100% { top: 72vh; left: calc(100vw + 1rem); opacity: 0; transform: rotate(30deg) scale(0.72); }
+}
+
+@keyframes sun-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes star-pulse {
+  from { opacity: 0.35; transform: scale(0.75); transform-origin: center; }
+  to { opacity: 1; transform: scale(1.15); transform-origin: center; }
+}
+
 [data-theme-label="dark"],
 :root[data-theme="dark"] [data-theme-label="light"] {
   display: none;
@@ -138,4 +205,10 @@ select {
 ::selection {
   background: var(--foreground);
   color: var(--background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .celestial-transition {
+    display: none;
+  }
 }
