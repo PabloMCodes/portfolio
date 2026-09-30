@@ -3,7 +3,7 @@ import { SkillBubbles } from "@/components/skill-bubbles";
 import styles from "../home.module.css";
 
 const groups = [
-  { title: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "Scala", "C", "SQL", "HTML / CSS"] },
+  { title: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "Scala", "C", "SQL", "Php" "HTML / CSS"] },
   { title: "Web & backend", items: ["React", "React Native", "Next.js", "FastAPI", "GraphQL", "Prisma", "SQLite", "PostgreSQL", "Thrift"] },
   { title: "Infrastructure & delivery", items: ["Git / GitHub", "Docker", "AWS", "CI/CD", "Kubernetes", "Testing", "Splunk", "WebSockets"] },
   { title: "Robotics & AI", items: ["ESP32", "YOLOv8", "MediaPipe", "Computer vision", "ArUco localization", "Bluetooth communication", "Agent orchestration"] },
