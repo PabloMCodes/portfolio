@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/container";
+import { NasaExperience } from "@/components/nasa-experience";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "./home.module.css";
 
@@ -206,37 +207,7 @@ function WorkExperience() {
         </div>
       </div>
       <div className={styles.projectGrid}>
-        <article className={`${styles.project} ${styles.nasaProject}`}>
-          {/* The photo adds personal context without implying a mission role. */}
-          <figure className={styles.nasaPhoto}>
-            <Image
-              src="/images/nasa-group.png"
-              alt="Pablo posing with three people in blue flight suits in front of a NASA backdrop."
-              width={1936}
-              height={1458}
-              sizes="(max-width: 900px) 92vw, (max-width: 1440px) 46vw, 640px"
-            />
-            <figcaption>A moment beyond the code / NASA</figcaption>
-          </figure>
-          <div className={styles.projectCopy}>
-            <p className={styles.label}>Summer 2026</p>
-            <h3>NASA Kennedy Space Center</h3>
-            <p className={styles.role}>Software Engineering Intern</p>
-            <p>
-              Built an internal full-stack platform supporting payload and science
-              experiment processing analysis during my summer 2026 internship.
-            </p>
-            <ul className={styles.detailList}>
-              <li>Designed REST APIs and asynchronous jobs with persistent state, progress tracking, and error handling.</li>
-              <li>Connected an AI-assisted workflow to structured inputs, persisted results, and frontend status updates.</li>
-              <li>Built for fully local operation while keeping a path open to hosted deployment and role-based access.</li>
-              <li>Nominated for NASA’s Shining Star recognition.</li>
-            </ul>
-            <ul className={styles.tags} aria-label="NASA technologies">
-              <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
-            </ul>
-          </div>
-        </article>
+        <NasaExperience />
         <article className={`${styles.project} ${styles.productionProject}`}>
           <figure className={styles.creditPhoto}>
             <Image

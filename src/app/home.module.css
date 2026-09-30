@@ -328,7 +328,8 @@
 .productionProject {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2rem, 6vw, 6rem);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 2rem;
   align-items: center;
   padding-top: 2.5rem;
 }
@@ -337,6 +338,168 @@
 .creditPhoto {
   min-width: 0;
   margin: 0;
+}
+
+.nasaImageFrame {
+  position: relative;
+  overflow: hidden;
+  background: var(--project-background);
+}
+
+.nasaImageFrame::before,
+.nasaImageFrame::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nasaImageFrame::before {
+  inset-block: 0;
+  background: var(--project-background);
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+
+.nasaImageFrame::after {
+  top: 0;
+  height: 2px;
+  background: #e7edf7;
+  box-shadow: 0 0 18px 4px rgb(231 237 247 / 55%);
+  opacity: 0;
+}
+
+.nasaVisible .nasaImageFrame::before {
+  animation: image-uncover 1.4s 0.1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.nasaVisible .nasaImageFrame::after {
+  animation: image-scan 1.4s 0.1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.scanStatus {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.65rem;
+  z-index: 2;
+  padding: 0.25rem 0.45rem;
+  background: rgb(13 24 43 / 78%);
+  color: #e7edf7;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+}
+
+.nasaPipeline {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--rule);
+}
+
+.pipelineHeading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+}
+
+.pipelineStages {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pipelineStages::before,
+.pipelineStages::after {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  left: 0;
+  height: 1px;
+}
+
+.pipelineStages::before {
+  width: 100%;
+  background: var(--rule);
+}
+
+.pipelineStages::after {
+  width: 0;
+  background: var(--foreground);
+  transition: width 450ms ease;
+}
+
+.pipelineStages[data-active="1"]::after { width: 33.333%; }
+.pipelineStages[data-active="2"]::after { width: 66.666%; }
+.pipelineStages[data-active="3"]::after { width: 100%; }
+
+.pipelineStages button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  text-align: left;
+  cursor: pointer;
+}
+
+.pipelineStages button::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--background);
+  transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+}
+
+.pipelineStages button:hover,
+.pipelineStages button:focus-visible,
+.pipelineStages .pipelineStageActive {
+  color: var(--foreground);
+}
+
+.pipelineStages .pipelineStageActive::before {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  transform: scale(1.08);
+}
+
+.pipelineStages button span {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.5625rem;
+}
+
+.pipelineDetail {
+  min-height: 1.6em;
+  margin-top: 1.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+@keyframes image-uncover {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0); }
+}
+
+@keyframes image-scan {
+  0% { top: 0; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 /* A light bottom crop removes the screenshot edge while keeping everyone visible. */
@@ -526,5 +689,26 @@
 
   .footer > p {
     flex-basis: 100%;
+  }
+
+  .pipelineStages button {
+    font-size: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nasaVisible .nasaImageFrame::before,
+  .nasaVisible .nasaImageFrame::after {
+    animation: none;
+  }
+
+  .nasaImageFrame::before,
+  .nasaImageFrame::after {
+    display: none;
+  }
+
+  .pipelineStages::after,
+  .pipelineStages button::before {
+    transition: none;
   }
 }
