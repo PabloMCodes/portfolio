@@ -2,16 +2,19 @@
 
 :root {
   color-scheme: light;
-  --background: #f4f4f1;
-  --foreground: #171816;
-  --muted-foreground: #656761;
-  --rule: #d4d5cf;
-  --project-background: #22251f;
-  --project-foreground: #f4f4f1;
-  --project-muted: #c9ccc2;
-  --sketch-background: #2c3028;
-  --sketch-foreground: #d3dac6;
-  --sketch-rule: #52594b;
+  --background: #f5f0e7;
+  --foreground: #211f1b;
+  --muted-foreground: #70685d;
+  --rule: #d8cebd;
+  --accent: #b86f2e;
+  --ambient-warm: rgb(231 158 79 / 18%);
+  --ambient-soft: rgb(255 224 170 / 22%);
+  --project-background: #202833;
+  --project-foreground: #f5eee2;
+  --project-muted: #cfc4b4;
+  --sketch-background: #2a3441;
+  --sketch-foreground: #eee2cf;
+  --sketch-rule: #59616a;
   --page-gutter: clamp(1.25rem, 4vw, 4rem);
   --section-space: clamp(5rem, 10vw, 10rem);
 }
@@ -19,16 +22,19 @@
 /* Midnight blue surfaces and soft, cool text keep dark mode easy on the eyes. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #0d182b;
-  --foreground: #e7edf7;
-  --muted-foreground: #a6b6cf;
-  --rule: #2c3e58;
-  --project-background: #13223a;
-  --project-foreground: #e7edf7;
-  --project-muted: #b6c6dd;
-  --sketch-background: #192c47;
-  --sketch-foreground: #ceddf1;
-  --sketch-rule: #405674;
+  --background: #101a2b;
+  --foreground: #f1e8d8;
+  --muted-foreground: #b7ac9c;
+  --rule: #384557;
+  --accent: #efa85a;
+  --ambient-warm: rgb(224 139 57 / 14%);
+  --ambient-soft: rgb(255 196 112 / 8%);
+  --project-background: #17253a;
+  --project-foreground: #f2e9da;
+  --project-muted: #c8baa7;
+  --sketch-background: #202e42;
+  --sketch-foreground: #eadbc5;
+  --sketch-rule: #536176;
 }
 
 /* Crossfade the full document quickly while the celestial transition travels. */
@@ -167,7 +173,10 @@ html {
 body {
   min-height: 100svh;
   margin: 0;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 84% 7%, var(--ambient-warm), transparent min(34rem, 48vw)),
+    radial-gradient(circle at 8% 92%, var(--ambient-soft), transparent min(28rem, 42vw)),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   font-size: 1rem;

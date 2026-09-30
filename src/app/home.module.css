@@ -30,6 +30,7 @@
 
 .wordmark span {
   margin-left: 0.12em;
+  color: var(--accent);
 }
 
 .navigation {
@@ -103,7 +104,7 @@
 }
 
 .heroTitle span {
-  color: var(--muted-foreground);
+  color: var(--accent);
 }
 
 .heroBottom {
@@ -317,6 +318,7 @@
   flex-direction: column;
   padding: clamp(1.5rem, 3vw, 2.5rem);
   border: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--background) 88%, var(--ambient-soft));
 }
 
 .projectCard h3 {
