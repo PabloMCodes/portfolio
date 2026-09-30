@@ -31,6 +31,35 @@
   --sketch-rule: #405674;
 }
 
+/* Crossfade the full document quickly while the celestial transition travels. */
+::view-transition-old(root) {
+  animation: theme-fade-out 420ms ease both;
+}
+
+::view-transition-new(root) {
+  animation: theme-fade-in 420ms ease both;
+}
+
+@keyframes theme-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes theme-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Older browsers still soften the most visible color changes. */
+.theme-fade-fallback body,
+.theme-fade-fallback header,
+.theme-fade-fallback footer,
+.theme-fade-fallback article,
+.theme-fade-fallback figure,
+.theme-fade-fallback button {
+  transition: background-color 420ms ease, color 420ms ease, border-color 420ms ease;
+}
+
 /* Labels follow the document theme, including the initial saved preference. */
 .theme-toggle {
   cursor: pointer;
@@ -210,5 +239,10 @@ select {
 @media (prefers-reduced-motion: reduce) {
   .celestial-transition {
     display: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
   }
 }

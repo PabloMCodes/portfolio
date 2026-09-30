@@ -3,6 +3,9 @@
 import { useState } from "react";
 
 type Celestial = "sun" | "moon";
+type TransitionDocument = Document & {
+  startViewTransition?: (update: () => void) => void;
+};
 
 // Update the document theme directly so the rest of the page stays server-rendered.
 export function ThemeToggle() {
@@ -11,7 +14,20 @@ export function ThemeToggle() {
   function toggleTheme() {
     const root = document.documentElement;
     const theme = root.dataset.theme === "dark" ? "light" : "dark";
-    root.dataset.theme = theme;
+    const applyTheme = () => {
+      root.dataset.theme = theme;
+    };
+
+    const transitionDocument = document as TransitionDocument;
+    if (transitionDocument.startViewTransition) {
+      transitionDocument.startViewTransition(applyTheme);
+    } else {
+      root.classList.add("theme-fade-fallback");
+      void root.offsetWidth;
+      applyTheme();
+      window.setTimeout(() => root.classList.remove("theme-fade-fallback"), 500);
+    }
+
     setCelestial(theme === "light" ? "sun" : "moon");
 
     try {
