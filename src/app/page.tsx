@@ -14,6 +14,7 @@ function Header() {
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#skills">Skills</a>
       </nav>
       <ThemeToggle />
@@ -48,6 +49,14 @@ function About() {
             <a href="#projects" className={styles.textLink}>
               See my projects <span aria-hidden="true">↓</span>
             </a>
+            <a
+              href="/images/Pablo_Mendoza_Resume.pdf"
+              className={styles.quietLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View résumé <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
         {/* Preserve the full portrait and reserve its space while it loads. */}
@@ -65,7 +74,7 @@ function About() {
       </div>
       <div className={styles.heroFootnote}>
         <span>Computer Science / University of Central Florida</span>
-        <span>Expected graduation — Dec 2027</span>
+        <span>Expected graduation — Aug 2027</span>
       </div>
     </section>
   );
@@ -144,6 +153,44 @@ function Projects() {
           handling helped us get reliable operation.
         </p>
       </div>
+      <div className={styles.projectGrid}>
+        <article className={styles.projectCard}>
+          <div>
+            <p className={styles.label}>AI productivity / Full stack</p>
+            <h3>LockedIn</h3>
+            <p>
+              A focus platform that uses computer vision to recognize distractions
+              during work sessions, then turns that activity into useful session
+              insights and social leaderboards.
+            </p>
+          </div>
+          <ul className={styles.detailList}>
+            <li>Built a Python inference pipeline and real-time WebSocket updates.</li>
+            <li>Designed the Next.js dashboard, authentication, and analytics experience.</li>
+          </ul>
+          <ul className={styles.tags} aria-label="LockedIn technologies">
+            <li>Next.js</li><li>FastAPI</li><li>YOLOv8</li><li>MediaPipe</li><li>Prisma</li><li>NextAuth</li>
+          </ul>
+        </article>
+        <article className={styles.projectCard}>
+          <div>
+            <p className={styles.label}>Mobile / Team project</p>
+            <h3>StudySpot</h3>
+            <p>
+              A study-location app with interactive maps, location-aware check-ins,
+              and live availability scoring, built and tested with a four-person team.
+            </p>
+          </div>
+          <ul className={styles.detailList}>
+            <li>Led the team through three months of product development.</li>
+            <li>Expanded location coverage with deduplicated Google Places searches.</li>
+            <li>Distributed internal builds through Apple TestFlight for feedback.</li>
+          </ul>
+          <ul className={styles.tags} aria-label="StudySpot technologies">
+            <li>React Native</li><li>FastAPI</li><li>PostgreSQL</li><li>Google Places API</li>
+          </ul>
+        </article>
+      </div>
     </section>
   );
 }
@@ -179,6 +226,12 @@ function WorkExperience() {
               Built an internal full-stack platform supporting payload and science
               experiment processing analysis during my summer 2026 internship.
             </p>
+            <ul className={styles.detailList}>
+              <li>Designed REST APIs and asynchronous jobs with persistent state, progress tracking, and error handling.</li>
+              <li>Connected an AI-assisted workflow to structured inputs, persisted results, and frontend status updates.</li>
+              <li>Built for fully local operation while keeping a path open to hosted deployment and role-based access.</li>
+              <li>Nominated for NASA’s Shining Star recognition.</li>
+            </ul>
             <ul className={styles.tags} aria-label="NASA technologies">
               <li>Python / FastAPI</li><li>React</li><li>Background workers</li>
             </ul>
@@ -195,8 +248,13 @@ function WorkExperience() {
               Software engineering experience on the User Management team,
               spanning frontend development, service infrastructure, and testing.
             </p>
+            <ul className={styles.detailList}>
+              <li>Shipped security-settings upgrades for a platform serving more than 120 million users.</li>
+              <li>Migrated authentication functionality from a legacy monorepo into Scala microservices.</li>
+              <li>Added schema validation, unit and integration coverage, and monitored staged Kubernetes rollouts.</li>
+            </ul>
             <ul className={styles.tags} aria-label="Credit Karma technologies">
-              <li>React / TypeScript</li><li>GraphQL</li><li>Scala</li>
+              <li>React / TypeScript</li><li>Vite</li><li>GraphQL</li><li>Scala</li>
             </ul>
           </div>
         </article>
@@ -205,20 +263,48 @@ function WorkExperience() {
   );
 }
 
+function Education() {
+  return (
+    <section id="education" className={styles.section} aria-labelledby="education-title">
+      <div className={styles.sectionHeading}>
+        <div>
+          <p className={styles.label}>04 / In the classroom</p>
+          <h2 id="education-title">Education</h2>
+        </div>
+        <p>Expected graduation · August 2027</p>
+      </div>
+      <div className={styles.educationGrid}>
+        <div>
+          <h3>University of Central Florida</h3>
+          <p>Bachelor of Science in Computer Science · GPA 3.578 / 4.0</p>
+        </div>
+        <div>
+          <p className={styles.label}>Selected coursework</p>
+          <p>Data Structures &amp; Algorithms I &amp; II, Algorithms for Machine Learning, Systems Software, Security in Computing, Discrete Structures, Computer Logic &amp; Organization, and Object-Oriented Programming.</p>
+        </div>
+        <div>
+          <p className={styles.label}>Community &amp; recognition</p>
+          <p>Florida Bright Futures Award · Society of Hispanic Professional Engineers · Knight Hacks</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Skills reflect tools used in the documented internships and robotics project.
 function Skills() {
   const groups = [
-    { title: "Languages", items: ["TypeScript", "Python", "Scala"] },
-    { title: "Web & backend", items: ["React", "FastAPI", "GraphQL", "SQLite", "Thrift"] },
-    { title: "Infrastructure & delivery", items: ["Docker", "AWS", "CI/CD", "Testing", "Splunk"] },
-    { title: "Robotics & AI", items: ["ESP32", "Bluetooth communication", "Computer vision", "ArUco localization", "Agent orchestration"] },
+    { title: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "Scala", "C", "SQL", "HTML / CSS"] },
+    { title: "Web & backend", items: ["React", "React Native", "Next.js", "FastAPI", "GraphQL", "Prisma", "SQLite", "PostgreSQL", "Thrift"] },
+    { title: "Infrastructure & delivery", items: ["Git / GitHub", "Docker", "AWS", "CI/CD", "Kubernetes", "Testing", "Splunk", "WebSockets"] },
+    { title: "Robotics & AI", items: ["ESP32", "YOLOv8", "MediaPipe", "Computer vision", "ArUco localization", "Bluetooth communication", "Agent orchestration"] },
   ];
 
   return (
     <section id="skills" className={`${styles.section} ${styles.skills}`} aria-labelledby="skills-title">
       <div className={styles.sectionHeading}>
         <div>
-          <p className={styles.label}>04 / My toolkit</p>
+          <p className={styles.label}>05 / My toolkit</p>
           <h2 id="skills-title">Skills</h2>
         </div>
         <p>Tools I’ve used across my work and projects.</p>
@@ -247,12 +333,18 @@ export default function Home() {
         <About />
         <WorkExperience />
         <Projects />
+        <Education />
         <Skills />
       </main>
       {/* A small closing row provides a real destination and a way back up. */}
       <footer className={styles.footer}>
         <p>Pablo Mendoza <span>/ Engineering portfolio</span></p>
-        <a href="https://github.com/PabloMCodes" className={styles.textLink}>Find me on GitHub <span aria-hidden="true">↗</span></a>
+        <div className={styles.footerLinks}>
+          <a href="mailto:pablocmendozab@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/pablo-c-mendoza" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/PabloMCodes" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="/images/Pablo_Mendoza_Resume.pdf" target="_blank" rel="noreferrer">Résumé <span aria-hidden="true">↗</span></a>
+        </div>
         <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
       </footer>
     </Container>
