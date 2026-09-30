@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PixelPablo } from "@/components/pixel-pablo";
 import { SiteShell } from "@/components/site-shell";
 import styles from "../home.module.css";
 
@@ -8,7 +9,7 @@ export default function AboutPage() {
     <div className={styles.heroLayout}>
       <div><div className={styles.heroTitleRow}>
         <h1 id="intro-title" className={styles.heroTitle}>Hi, I’m Pablo<span>.</span></h1>
-        <Image className={styles.pixelPablo} src="/images/pablo-pixel-laptop.png" alt="Pixel-art Pablo working at a laptop." width={160} height={155} unoptimized />
+        <PixelPablo />
       </div><div className={styles.heroBottom}>
         <p className={styles.introCopy}>I’m a Computer Science student at the University of Central Florida. My work brings together software, AI, and robotics—from web applications to robots that move through the real world.</p>
         <p className={styles.introCopy}>I’ve spent summers building software at NASA and Credit Karma, and a hackathon connecting hardware, code, and a robot named WALL-Y. This is a little of what I’ve been working on.</p>

@@ -106,16 +106,163 @@
 .heroTitleRow {
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: clamp(1rem, 3vw, 2rem);
   margin-bottom: 2rem;
 }
 
-.pixelPablo {
-  display: block;
+.pixelScene {
+  position: relative;
   flex: none;
+  width: clamp(15rem, 22vw, 18rem);
+  height: clamp(7.5rem, 12vw, 10rem);
+}
+
+.pixelSprite {
+  position: relative;
+  display: block;
   width: clamp(7.5rem, 12vw, 10rem);
-  height: auto;
+  aspect-ratio: 160 / 155;
+  animation: pixel-bob 2.1s ease-in-out infinite;
+}
+
+.pixelSprite:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pixelFrame {
+  object-fit: contain;
   image-rendering: pixelated;
+}
+
+.pixelTyping,
+.pixelTurning,
+.pixelPresenting {
+  opacity: 0;
+}
+
+.pixelScene[data-phase="idle"] .pixelTyping {
+  animation: pixel-type 750ms steps(1, end) infinite;
+}
+
+.pixelScene[data-phase="turning"] .pixelTurning,
+.pixelScene[data-phase="presenting"] .pixelPresenting {
+  opacity: 1;
+}
+
+.typingSpark {
+  position: absolute;
+  left: 60%;
+  top: 51%;
+  width: 3px;
+  height: 3px;
+  background: #f9ba69;
+  box-shadow: 7px -3px #f9ba69;
+  animation: pixel-spark 750ms steps(1, end) infinite;
+}
+
+.pixelScene:not([data-phase="idle"]) .typingSpark {
+  display: none;
+}
+
+.pixelCallout {
+  position: absolute;
+  top: 0.4rem;
+  left: 57%;
+  display: block;
+  width: 8.6rem;
+  min-height: 44px;
+  padding: 0.2rem;
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  transform: rotate(-5deg);
+}
+
+.pixelCallout svg {
+  position: absolute;
+  top: 1.8rem;
+  left: -2.7rem;
+  width: 3rem;
+  height: 2.5rem;
+}
+
+.pixelCallout span {
+  display: block;
+  padding-left: 0.5rem;
+}
+
+.pixelCallout:hover span,
+.pixelCallout:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.pixelCallout:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.pixelScreenZoom {
+  position: fixed;
+  z-index: 120;
+  display: none;
+  overflow: hidden;
+  border: 2px solid #f1a65a;
+  border-radius: 2px;
+  background: #101a2b;
+  color: #f5eee2;
+  pointer-events: none;
+}
+
+.pixelScreenContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  width: 100%;
+  min-width: 280px;
+  height: 100%;
+  padding: clamp(2rem, 8vw, 8rem);
+  opacity: 0;
+  animation: pixel-screen-reveal 380ms 280ms ease-out both;
+}
+
+.pixelScreenEyebrow,
+.pixelScreenLine {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.pixelScreenEyebrow { color: #efa85a; }
+.pixelScreenTitle { font-size: clamp(3rem, 10vw, 8rem); line-height: 1; letter-spacing: -0.06em; }
+.pixelScreenTitle span { color: #efa85a; }
+.pixelScreenLine { width: min(35rem, 75vw); height: 3px; background: #536176; }
+.pixelScreenLine:nth-last-child(2) { width: min(24rem, 55vw); }
+.pixelScreenLine:last-child { width: min(29rem, 65vw); }
+
+@keyframes pixel-type {
+  0%, 43% { opacity: 0; }
+  44%, 100% { opacity: 1; }
+}
+
+@keyframes pixel-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes pixel-spark {
+  0%, 35%, 70%, 100% { opacity: 0; }
+  36%, 69% { opacity: 1; }
+}
+
+@keyframes pixel-screen-reveal {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .heroTitle span {
@@ -603,8 +750,17 @@
     justify-self: end;
   }
 
-  .pixelPablo {
-    width: 6rem;
+  .pixelScene {
+    width: 15rem;
+    height: 6.5rem;
+  }
+
+  .pixelSprite {
+    width: 6.5rem;
+  }
+
+  .pixelCallout {
+    left: 45%;
   }
 
   .header {
@@ -659,6 +815,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .pixelSprite,
+  .pixelTyping,
+  .typingSpark,
+  .pixelScreenContent {
+    animation: none !important;
+  }
+
+  .pixelTyping,
+  .typingSpark {
+    display: none;
+  }
+
   .nasaLaunchPath {
     display: none;
   }
