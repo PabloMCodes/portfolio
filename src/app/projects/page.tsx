@@ -41,7 +41,18 @@ export default function ProjectsPage() {
           <figcaption>Live distraction tracking / Open image for a closer look ↗</figcaption>
         </figure>
         <ul className={styles.detailList}><li>Built a Python inference pipeline and real-time WebSocket updates.</li><li>Designed the Next.js dashboard, authentication, and analytics experience.</li></ul><ul className={styles.tags} aria-label="LockedIn technologies"><li>Next.js</li><li>FastAPI</li><li>YOLOv8</li><li>MediaPipe</li><li>Prisma</li><li>NextAuth</li></ul></article>
-      <article className={styles.projectCard}><div><p className={styles.label}>Mobile / Team project</p><h3>StudySpot</h3><p>A study-location app with interactive maps, location-aware check-ins, and live availability scoring, built and tested with a four-person team.</p></div><ul className={styles.detailList}><li>Led the team through three months of product development.</li><li>Expanded location coverage with deduplicated Google Places searches.</li><li>Distributed internal builds through Apple TestFlight for feedback.</li></ul><ul className={styles.tags} aria-label="StudySpot technologies"><li>React Native</li><li>FastAPI</li><li>PostgreSQL</li><li>Google Places API</li></ul></article>
+      <article className={styles.projectCard}><div><p className={styles.label}>Mobile / Team project</p><h3>StudySpot</h3><p>A study-location app with interactive maps, location-aware check-ins, and live availability scoring, built and tested with a four-person team.</p></div>
+        <div className={styles.studySpotGallery}>
+          <figure className={styles.projectPhoto}>
+            <a href="/images/StudySpotSc.png" target="_blank" rel="noreferrer" aria-label="Open the full StudySpot app screenshot in a new tab"><Image src="/images/StudySpotSc.png" alt="StudySpot mobile app showing nearby study locations on a map, search filters, and a check-in prompt." width={824} height={1798} sizes="(max-width: 600px) 32vw, 17vw" /></a>
+            <figcaption>Finding a nearby spot / App view ↗</figcaption>
+          </figure>
+          <figure className={styles.projectPhoto}>
+            <a href="/images/StudySpotGroupPhoto.JPG" target="_blank" rel="noreferrer" aria-label="Open the full StudySpot team photo in a new tab"><Image src="/images/StudySpotGroupPhoto.JPG" alt="The four-person StudySpot team holding project posters in front of a UCF College of Engineering and Computer Science backdrop." width={2160} height={2880} sizes="(max-width: 600px) 48vw, 25vw" /></a>
+            <figcaption>The team behind StudySpot ↗</figcaption>
+          </figure>
+        </div>
+        <ul className={styles.detailList}><li>Led the team through three months of product development.</li><li>Expanded location coverage with deduplicated Google Places searches.</li><li>Distributed internal builds through Apple TestFlight for feedback.</li></ul><ul className={styles.tags} aria-label="StudySpot technologies"><li>React Native</li><li>FastAPI</li><li>PostgreSQL</li><li>Google Places API</li></ul></article>
     </div>
   </section></SiteShell>;
 }
