@@ -1,4 +1,5 @@
 import { SiteShell } from "@/components/site-shell";
+import { SkillBubbles } from "@/components/skill-bubbles";
 import styles from "../home.module.css";
 
 const groups = [
@@ -11,6 +12,6 @@ const groups = [
 export default function SkillsPage() {
   return <SiteShell currentPath="/skills"><section className={`${styles.section} ${styles.skills}`} aria-labelledby="skills-title">
     <div className={styles.sectionHeading}><div><p className={styles.label}>My toolkit</p><h1 id="skills-title" className={styles.pageTitle}>Skills</h1></div><p>Tools I’ve used across my work and projects.</p></div>
-    <div className={styles.skillGrid}>{groups.map(({ title, items }) => <div key={title} className={styles.skillGroup}><h3>{title}</h3><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}</div>
+    <SkillBubbles groups={groups} />
   </section></SiteShell>;
 }
