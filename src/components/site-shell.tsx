@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { RoomAmbience } from "@/components/room-ambience";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "@/app/home.module.css";
 
@@ -10,6 +11,7 @@ const navigation = [
 export function SiteShell({ children, currentPath }: { children: React.ReactNode; currentPath: string }) {
   return (
     <Container id="top" className={styles.home}>
+      <RoomAmbience />
       <a href="#main" className={styles.skipLink}>Skip to content</a>
       <header className={styles.header}>
         <a href="/about" className={styles.wordmark} aria-label="Pablo Mendoza, about">pablo mendoza<span aria-hidden="true">.</span></a>

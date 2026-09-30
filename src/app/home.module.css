@@ -2,6 +2,13 @@
 .home { isolation: isolate; }
 
 .header,
+.home main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.header,
 .navigation,
 .heroLabel,
 .heroBottom,
