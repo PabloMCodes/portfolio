@@ -111,8 +111,8 @@
   display: none;
 }
 
-:root:not([data-theme="dark"]) .room-plant {
-  opacity: 0.22;
+:root:not([data-theme="dark"]) .plant-shelf {
+  opacity: 0.62;
   filter: saturate(0.72);
 }
 
@@ -121,8 +121,8 @@
   opacity: 0.78;
 }
 
-:root[data-theme="dark"] .room-plant {
-  opacity: 0.58;
+:root[data-theme="dark"] .plant-shelf {
+  opacity: 0.9;
   filter:
     drop-shadow(-1px 0 rgb(239 168 90 / 18%))
     drop-shadow(0.6rem 0.8rem 0.8rem rgb(2 8 15 / 28%));
@@ -133,20 +133,17 @@
 }
 
 /* Inner pages borrow the mood without recreating the entire room. */
-.room-ambience:not([data-room-page="about"]) .table-lamp,
-.room-ambience:not([data-room-page="about"]) .room-plant-right {
+.room-ambience:not([data-room-page="about"]) .table-lamp {
   display: none;
 }
 
-.room-ambience[data-room-page="experience"] .room-plant-left {
-  opacity: 0.22;
+.room-ambience:not([data-room-page="about"]) .plant-shelf {
+  top: 10rem;
+  transform: scale(0.82);
+  transform-origin: top right;
 }
 
 .room-ambience[data-room-page="projects"] .pendant-light {
-  display: none;
-}
-
-.room-ambience[data-room-page="skills"] .room-plant-left {
   display: none;
 }
 
@@ -216,24 +213,14 @@
   transform: translateX(-50%);
 }
 
-.room-plant {
+.plant-shelf {
   position: absolute;
+  z-index: 2;
+  top: clamp(11rem, 22vh, 15rem);
+  right: max(0.65rem, calc((100vw - 90rem) / 2 + 0.65rem));
+  width: 8.5rem;
+  height: 22rem;
   color: var(--plant);
-  filter: drop-shadow(0.5rem 0.75rem 0.7rem rgb(18 22 15 / 16%));
-}
-
-.room-plant-left {
-  bottom: -4rem;
-  left: -5rem;
-  width: clamp(9rem, 15vw, 13rem);
-  transform: rotate(3deg);
-}
-
-.room-plant-right {
-  right: -4rem;
-  bottom: -4rem;
-  width: clamp(7rem, 11vw, 10rem);
-  transform: rotate(-4deg);
 }
 
 .plant-stem {
@@ -244,8 +231,47 @@
 }
 
 .plant-leaves { fill: currentColor; }
-.plant-pot { fill: #82513a; }
-.plant-pot-rim { fill: #9c6749; }
+
+.shelf-board {
+  position: absolute;
+  top: 2.8rem;
+  right: 0;
+  width: 8.5rem;
+  height: 0.65rem;
+  border-radius: 2px;
+  background: #76513c;
+  box-shadow: 0 0.5rem 0.8rem rgb(19 13 9 / 18%);
+}
+
+.shelf-bracket {
+  position: absolute;
+  top: 3.35rem;
+  right: 1rem;
+  width: 0.5rem;
+  height: 1.5rem;
+  border-right: 2px solid #5d4031;
+  border-bottom: 2px solid #5d4031;
+}
+
+.shelf-pot {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 2.1rem;
+  width: 3.8rem;
+  height: 3rem;
+  border-radius: 0.25rem 0.25rem 1rem 1rem;
+  background: linear-gradient(120deg, #a36c4c, #744631);
+}
+
+.shelf-vine {
+  position: absolute;
+  top: 1.7rem;
+  right: -0.2rem;
+  width: 8rem;
+  height: 19rem;
+  overflow: visible;
+}
 
 .table-lamp {
   position: absolute;
@@ -302,13 +328,13 @@
 
 @media (max-width: 900px) {
   .pendant-light { right: 1rem; transform: scale(0.78); transform-origin: top right; }
-  .room-plant-right, .table-lamp { display: none; }
-  .room-plant-left { opacity: 0.72; }
+  .table-lamp { display: none; }
+  .plant-shelf { top: 9rem; right: 0.35rem; transform: scale(0.68); transform-origin: top right; }
 }
 
 @media (max-width: 600px) {
   .pendant-light { opacity: 0.62; transform: scale(0.58); transform-origin: top right; }
-  .room-plant-left { left: -5rem; opacity: 0.5; }
+  .plant-shelf { display: none; }
 }
 
 .celestial-transition {
