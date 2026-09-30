@@ -380,6 +380,62 @@
   padding: clamp(1.5rem, 3.5vw, 3.5rem);
 }
 
+.projectPhoto {
+  min-width: 0;
+  margin: 0;
+}
+
+.projectPhoto img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.projectPhoto figcaption {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+  line-height: 1.6;
+}
+
+.fleetPhoto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--sketch-background);
+}
+
+.fleetPhoto figcaption {
+  margin: 0;
+  padding: 1rem 1.5rem;
+  color: var(--project-muted);
+}
+
+.projectGallery {
+  display: grid;
+  grid-template-columns: 1.47fr 1fr;
+  align-items: start;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.fleetDetails {
+  margin-top: 1.5rem;
+  border-block: 1px solid var(--rule);
+}
+
+.fleetDetails summary {
+  padding: 1rem 0;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.fleetDetails .sketch { margin-bottom: 1rem; }
+.fleetDetails .sketch svg { max-width: 40rem; align-self: center; }
+.productScreenshot { margin-top: 1.5rem; }
+.productScreenshot a { display: block; }
+
 .featuredCopy h3 {
   margin-block: 2.5rem 1.5rem;
   font-size: clamp(2rem, 3.7vw, 3.5rem);
@@ -718,6 +774,11 @@
 }
 
 @media (max-width: 600px) {
+  .projectGallery,
+  .fieldNote + .projectGrid {
+    grid-template-columns: 1fr;
+  }
+
   .heroLayout {
     grid-template-columns: 1fr;
     gap: 2.5rem;
