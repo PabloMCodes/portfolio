@@ -238,12 +238,20 @@ function WorkExperience() {
           </div>
         </article>
         <article className={`${styles.project} ${styles.productionProject}`}>
-          <div>
+          <figure className={styles.creditPhoto}>
+            <Image
+              src="/images/credit-karma-team.png"
+              alt="Pablo with the Credit Karma internship cohort in front of a colorful Credit Karma mural."
+              width={1628}
+              height={1098}
+              sizes="(max-width: 900px) 92vw, (max-width: 1440px) 46vw, 640px"
+            />
+            <figcaption>Summer with the team / Credit Karma</figcaption>
+          </figure>
+          <div className={styles.projectCopy}>
             <p className={styles.label}>Summer 2025</p>
             <h3>Credit Karma / Intuit</h3>
             <p className={styles.role}>Software Engineering Intern · User Management</p>
-          </div>
-          <div className={styles.projectCopy}>
             <p>
               Software engineering experience on the User Management team,
               spanning frontend development, service infrastructure, and testing.

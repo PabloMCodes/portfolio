@@ -118,14 +118,16 @@
 }
 
 .portrait img,
-.nasaPhoto img {
+.nasaPhoto img,
+.creditPhoto img {
   display: block;
   width: 100%;
   height: auto;
 }
 
 .portrait figcaption,
-.nasaPhoto figcaption {
+.nasaPhoto figcaption,
+.creditPhoto figcaption {
   margin-top: 0.875rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono), monospace;
@@ -331,13 +333,15 @@
   padding-top: 2.5rem;
 }
 
-.nasaPhoto {
+.nasaPhoto,
+.creditPhoto {
   min-width: 0;
   margin: 0;
 }
 
 /* A light bottom crop removes the screenshot edge while keeping everyone visible. */
-.nasaPhoto img {
+.nasaPhoto img,
+.creditPhoto img {
   aspect-ratio: 1.4;
   object-fit: cover;
   object-position: center top;
@@ -442,7 +446,8 @@
     font-size: clamp(2.25rem, 4.6vw, 2.75rem);
   }
 
-  .nasaProject {
+  .nasaProject,
+  .productionProject {
     grid-template-columns: 1fr;
   }
 
