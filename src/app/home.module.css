@@ -275,15 +275,29 @@
 
 .heroLayout {
   display: grid;
+  grid-template-areas: "intro portrait" "actions portrait";
   grid-template-columns: minmax(0, 42rem) minmax(16rem, 20rem);
   align-items: start;
-  gap: clamp(3rem, 8vw, 8rem);
+  column-gap: clamp(3rem, 8vw, 8rem);
+  row-gap: 1.75rem;
   margin-top: 3rem;
 }
 
 .portrait {
+  grid-area: portrait;
   margin: 0;
 }
+
+.heroLead { grid-area: intro; min-width: 0; }
+.heroActions { grid-area: actions; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; min-width: 0; }
+.heroActions .quietLink { margin-top: 0; }
+.aboutDetails { margin-top: 2.5rem; border-block: 1px solid var(--rule); }
+.aboutDetails summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; list-style: none; font-size: 0.9375rem; cursor: pointer; }
+.aboutDetails summary::-webkit-details-marker { display: none; }
+.aboutDetails summary span { font-size: 1.4rem; color: var(--accent); }
+.aboutDetails[open] summary span { transform: rotate(45deg); }
+.aboutDetails summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.aboutStory { display: grid; gap: 1.25rem; max-width: 46rem; padding-block: 0.5rem 1.75rem; color: var(--muted-foreground); font-size: 1rem; line-height: 1.75; }
 
 .portrait img,
 .nasaPhoto img,
@@ -878,13 +892,18 @@
 
   .heroLayout {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-areas: "intro" "portrait" "actions";
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
 
   .portrait {
-    width: min(82%, 300px);
+    width: 9rem;
     justify-self: center;
   }
+
+  .portrait figcaption { flex-direction: column; align-items: center; gap: 0.1rem; }
+  .heroActions { align-items: center; }
 
   .pixelScene {
     width: min(21.75rem, 100%);
