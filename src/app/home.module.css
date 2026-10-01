@@ -114,14 +114,14 @@
 .pixelScene {
   position: relative;
   flex: none;
-  width: clamp(18rem, 28vw, 22rem);
-  height: clamp(10rem, 16vw, 13rem);
+  width: clamp(20.5rem, 32vw, 25.25rem);
+  height: clamp(11.5rem, 18.4vw, 15rem);
 }
 
 .pixelSprite {
   position: relative;
   display: block;
-  width: clamp(10rem, 16vw, 13rem);
+  width: clamp(11.5rem, 18.4vw, 15rem);
   aspect-ratio: 160 / 155;
   animation: pixel-bob 2.1s ease-in-out infinite;
 }
@@ -805,12 +805,12 @@
   }
 
   .pixelScene {
-    width: min(19rem, 100%);
-    height: 8.75rem;
+    width: min(21.75rem, 100%);
+    height: 10rem;
   }
 
   .pixelSprite {
-    width: 8.75rem;
+    width: 10rem;
   }
 
   .pixelCallout {
