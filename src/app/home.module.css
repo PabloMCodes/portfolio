@@ -134,21 +134,19 @@
 .pixelFrame {
   object-fit: contain;
   image-rendering: pixelated;
+  opacity: 0;
 }
 
-.pixelTyping,
-.pixelTurning,
-.pixelPresenting {
-  opacity: 0;
+.pixelFrame[data-active="true"] {
+  opacity: 1;
 }
 
 .pixelScene[data-phase="idle"] .pixelTyping {
   animation: pixel-type 750ms steps(1, end) infinite;
 }
 
-.pixelScene[data-phase="turning"] .pixelTurning,
-.pixelScene[data-phase="presenting"] .pixelPresenting {
-  opacity: 1;
+.pixelScene:not([data-phase="idle"]) .pixelSprite {
+  animation: none;
 }
 
 .typingSpark {

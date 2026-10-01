@@ -6,7 +6,14 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { animate } from "motion/mini";
 import styles from "@/app/home.module.css";
 
-type Phase = "idle" | "turning" | "presenting";
+const turnFrames = [
+  { phase: "reaching", src: "reaching", at: 0 },
+  { phase: "edge", src: "edge", at: 400 },
+  { phase: "turning", src: "turning", at: 800 },
+  { phase: "almost", src: "almost", at: 1200 },
+  { phase: "presenting", src: "presenting", at: 1600 },
+] as const;
+type Phase = "idle" | (typeof turnFrames)[number]["phase"];
 
 export function PixelPablo() {
   const router = useRouter();
@@ -28,9 +35,11 @@ export function PixelPablo() {
     event.preventDefault();
     if (navigating.current) return;
     navigating.current = true;
-    setPhase("turning");
+    setPhase("reaching");
 
-    timers.current.push(setTimeout(() => setPhase("presenting"), 340));
+    turnFrames.slice(1).forEach(({ phase: nextPhase, at }) => {
+      timers.current.push(setTimeout(() => setPhase(nextPhase), at));
+    });
     timers.current.push(setTimeout(() => {
       const sprite = spriteRef.current;
       const screen = screenRef.current;
@@ -53,15 +62,14 @@ export function PixelPablo() {
         height: `${window.innerHeight}px`,
         borderRadius: "0px",
       }, { duration: 0.8, ease: [0.22, 1, 0.36, 1] }).then(() => router.push("/projects"));
-    }, 610));
+    }, 2100));
   }
 
   return <div className={styles.pixelScene} data-phase={phase}>
     <a ref={spriteRef} className={styles.pixelSprite} href="/projects" onClick={goToProjects} aria-label="Watch Pablo turn his laptop around to show his projects">
-      <Image className={styles.pixelFrame} src="/images/pablo-pixel-laptop.png" alt="" fill sizes="160px" unoptimized />
-      <Image className={`${styles.pixelFrame} ${styles.pixelTyping}`} src="/images/pablo-pixel-typing.png" alt="" fill sizes="160px" unoptimized />
-      <Image className={`${styles.pixelFrame} ${styles.pixelTurning}`} src="/images/pablo-pixel-turning.png" alt="" fill sizes="160px" unoptimized />
-      <Image className={`${styles.pixelFrame} ${styles.pixelPresenting}`} src="/images/pablo-pixel-presenting.png" alt="" fill sizes="160px" unoptimized />
+      <Image className={styles.pixelFrame} data-active={phase === "idle"} src="/images/pablo-pixel-laptop.png" alt="" fill sizes="160px" loading="eager" unoptimized />
+      <Image className={`${styles.pixelFrame} ${styles.pixelTyping}`} src="/images/pablo-pixel-typing.png" alt="" fill sizes="160px" loading="eager" unoptimized />
+      {turnFrames.map((frame) => <Image key={frame.phase} className={styles.pixelFrame} data-active={phase === frame.phase} src={`/images/pablo-pixel-${frame.src}.png`} alt="" fill sizes="160px" loading="eager" unoptimized />)}
       <span className={styles.typingSpark} aria-hidden="true" />
     </a>
     <a className={styles.pixelCallout} href="/projects" onClick={goToProjects}>
