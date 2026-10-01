@@ -8,10 +8,10 @@ import styles from "@/app/home.module.css";
 
 const turnFrames = [
   { phase: "reaching", src: "reaching", at: 0 },
-  { phase: "edge", src: "edge", at: 400 },
-  { phase: "turning", src: "turning", at: 800 },
-  { phase: "almost", src: "almost", at: 1200 },
-  { phase: "presenting", src: "presenting", at: 1600 },
+  { phase: "edge", src: "edge", at: 130 },
+  { phase: "turning", src: "turning", at: 260 },
+  { phase: "almost", src: "almost", at: 390 },
+  { phase: "presenting", src: "presenting", at: 520 },
 ] as const;
 type Phase = "idle" | (typeof turnFrames)[number]["phase"];
 
@@ -61,8 +61,8 @@ export function PixelPablo() {
         width: `${window.innerWidth}px`,
         height: `${window.innerHeight}px`,
         borderRadius: "0px",
-      }, { duration: 0.8, ease: [0.22, 1, 0.36, 1] }).then(() => router.push("/projects"));
-    }, 2100));
+      }, { duration: 0.6, ease: [0.22, 1, 0.36, 1] }).then(() => router.push("/projects"));
+    }, 700));
   }
 
   return <div className={styles.pixelScene} data-phase={phase}>

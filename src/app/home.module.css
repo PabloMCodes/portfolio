@@ -226,7 +226,7 @@
   height: 100%;
   padding: clamp(2rem, 8vw, 8rem);
   opacity: 0;
-  animation: pixel-screen-reveal 380ms 280ms ease-out both;
+  animation: pixel-screen-reveal 280ms 160ms ease-out both;
 }
 
 .pixelScreenEyebrow,
