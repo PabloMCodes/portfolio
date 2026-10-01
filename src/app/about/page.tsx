@@ -10,8 +10,10 @@ export default function AboutPage() {
       <div><div className={styles.heroTitleRow}>
         <h1 id="intro-title" className={styles.heroTitle}>Hi, I’m Pablo<span>.</span></h1>
       </div><div className={styles.heroBottom}>
-        <p className={styles.introCopy}>I’m a Computer Science student at the University of Central Florida. My work brings together software, AI, and robotics—from web applications to robots that move through the real world.</p>
-        <p className={styles.introCopy}>I’ve spent summers building software at NASA and Credit Karma, and a hackathon connecting hardware, code, and a robot named WALL-Y. This is a little of what I’ve been working on.</p>
+        <p className={styles.introCopy}>Computer Science student at UCF and a software engineer interested in building intelligent, complex systems.</p>
+        <p className={styles.introCopy}>I&apos;ve worked on production software at Credit Karma and built full-stack engineering tools at NASA Kennedy Space Center, with experience spanning backend services, APIs, distributed workflows, frontend applications, and AI-assisted systems. I’m especially interested in backend and infrastructure engineering, AI/ML, and software that has to operate reliably beyond a simple demo.</p>
+        <p className={styles.introCopy}>Outside of work, I like pushing software into the physical world. Most recently, that meant building an autonomous multi-robot system from the ground up — connecting AI agents and computer vision to navigation software, embedded firmware, and physical robots.</p>
+        <p className={styles.introCopy}>I enjoy understanding systems deeply: tracing how data moves between services, figuring out why something fails, and working across abstractions when the problem demands it. Whether that means debugging an API or tracking down why a motor is interfering with a microcontroller, I like getting to the root of the problem and building a better solution.</p>
         <PixelPablo />
         <a href="/images/Pablo_Mendoza_Resume.pdf" className={styles.quietLink} target="_blank" rel="noreferrer">View résumé <span aria-hidden="true">↗</span></a>
       </div></div>
