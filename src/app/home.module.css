@@ -277,9 +277,9 @@
 
 .heroLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
-  align-items: center;
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 42rem) minmax(16rem, 20rem);
+  align-items: start;
+  gap: clamp(3rem, 8vw, 8rem);
   margin-top: 3rem;
 }
 
@@ -884,9 +884,8 @@
   }
 
   .portrait {
-    width: 85%;
-    max-width: 320px;
-    justify-self: end;
+    width: min(82%, 300px);
+    justify-self: center;
   }
 
   .pixelScene {
