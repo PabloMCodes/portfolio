@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "Pablo Mendoza",
   description: "Engineering portfolio of Pablo Mendoza.",
   icons: {
-    icon: [{ url: "/images/pablo-pixel-laptop.png", type: "image/png" }],
-    shortcut: "/images/pablo-pixel-laptop.png",
-    apple: "/images/pablo-pixel-laptop.png",
+    icon: [{ url: "/images/pablo-pixel-face.png", type: "image/png" }],
+    shortcut: "/images/pablo-pixel-face.png",
+    apple: "/images/pablo-pixel-face.png",
   },
 };
 
