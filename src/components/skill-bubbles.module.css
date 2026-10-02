@@ -7,7 +7,7 @@
 .group:nth-child(3) { --bubble-primary: #d88770; --bubble-secondary: #e5ad83; }
 .group:nth-child(4) { --bubble-primary: #81b58c; --bubble-secondary: #a8c77e; }
 .groupHeading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.5rem 0.5rem; }
-.groupHeading h2 { font-size: 1rem; line-height: 1.4; letter-spacing: -0.02em; }
+.groupHeading h2, .groupHeading h3 { font-size: 1rem; line-height: 1.4; letter-spacing: -0.02em; }
 .groupHeading span { flex: none; font-family: var(--font-mono), monospace; font-size: 0.625rem; color: var(--muted-foreground); }
 .arena { position: relative; list-style: none; padding: 0; margin: 0; min-height: 360px; }
 .arena:not([data-ready]) { display: flex; flex-wrap: wrap; gap: 0.75rem; padding: 1rem; }

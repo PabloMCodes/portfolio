@@ -9,7 +9,8 @@ type Bubble = { x: number; y: number; vx: number; vy: number; radius: number };
 const GAP = 8;
 const clamp = (value: number, low: number, high: number) => Math.max(low, Math.min(high, value));
 
-function BubbleGroup({ title, items, paused }: Group & { paused: boolean }) {
+function BubbleGroup({ title, items, paused, itemLabel }: Group & { paused: boolean; itemLabel: "tools" | "courses" }) {
+  const Heading = itemLabel === "courses" ? "h3" : "h2";
   const arena = useRef<HTMLUListElement>(null);
   const nodes = useRef<(HTMLButtonElement | null)[]>([]);
   const bodies = useRef<Bubble[]>([]);
@@ -30,14 +31,17 @@ function BubbleGroup({ title, items, paused }: Group & { paused: boolean }) {
     const resize = new ResizeObserver(([entry]) => {
       const width = entry.contentRect.width;
       if (!width || Math.abs(width - bounds.current.width) < 1) return;
-      const columns = Math.max(1, Math.floor(width / 132));
+      const cellSize = itemLabel === "courses" ? 172 : 132;
+      const columns = Math.max(1, Math.floor(width / cellSize));
       const rows = Math.ceil(items.length / columns);
-      const height = Math.max(360, rows * 132 + 24);
+      const height = Math.max(360, rows * cellSize + 24);
       bounds.current = { width, height };
       element.style.height = `${height}px`;
       drag.current = null;
       bodies.current = items.map((item, index) => {
-        const radius = item.length > 16 ? 58 : item.length > 9 ? 51 : 42;
+        const radius = itemLabel === "courses"
+          ? item.length > 40 ? 78 : item.length > 26 ? 68 : 58
+          : item.length > 16 ? 58 : item.length > 9 ? 51 : 42;
         const angle = index * 2.4 + 0.7;
         const node = nodes.current[index];
         if (node) { node.style.width = `${radius * 2}px`; node.style.height = `${radius * 2}px`; }
@@ -54,7 +58,7 @@ function BubbleGroup({ title, items, paused }: Group & { paused: boolean }) {
     resize.observe(element);
     observer.observe(element);
     return () => { resize.disconnect(); observer.disconnect(); };
-  }, [items]);
+  }, [items, itemLabel]);
 
   useAnimationFrame((_, delta) => {
     if (paused || !visible.current || document.hidden) return;
@@ -116,7 +120,7 @@ function BubbleGroup({ title, items, paused }: Group & { paused: boolean }) {
   }
 
   return <section className={styles.group} aria-label={title}>
-    <div className={styles.groupHeading}><h2>{title}</h2><span>{items.length} tools</span></div>
+    <div className={styles.groupHeading}><Heading>{title}</Heading><span>{items.length} {itemLabel}</span></div>
     <ul ref={arena} className={styles.arena} data-paused={paused}>
       {items.map((item, index) => <li key={item}>
         <button
@@ -146,7 +150,7 @@ function BubbleGroup({ title, items, paused }: Group & { paused: boolean }) {
   </section>;
 }
 
-export function SkillBubbles({ groups }: { groups: Group[] }) {
+export function SkillBubbles({ groups, itemLabel = "tools" }: { groups: Group[]; itemLabel?: "tools" | "courses" }) {
   const reducedMotion = useReducedMotion();
   const [userPaused, setUserPaused] = useState<boolean | null>(null);
   const paused = userPaused ?? Boolean(reducedMotion);
@@ -155,6 +159,6 @@ export function SkillBubbles({ groups }: { groups: Group[] }) {
       <p>Grab a bubble and give it a gentle push. Or use Tab and the arrow keys.</p>
       <button type="button" onClick={() => setUserPaused(!paused)} aria-pressed={paused}>{paused ? "Resume motion" : "Pause motion"}</button>
     </div>
-    <div className={styles.grid}>{groups.map((group) => <BubbleGroup key={group.title} {...group} paused={paused} />)}</div>
+    <div className={styles.grid}>{groups.map((group) => <BubbleGroup key={group.title} {...group} paused={paused} itemLabel={itemLabel} />)}</div>
   </>;
 }
