@@ -1,0 +1,32 @@
+.page { max-width: 64rem; margin-inline: auto; }
+.intro { width: min(100%, 52rem, 112svh); margin: 0 auto 2rem; }
+.eyebrow { margin-top: 2.5rem; }
+.tagline { margin-top: 1.25rem; font-size: clamp(1.125rem, 2.4vw, 1.5rem); line-height: 1.4; }
+.summary { margin-top: 0.4rem; color: var(--muted-foreground); }
+.videoCaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); color: var(--muted-foreground); font-size: 0.75rem; }
+.storySection { margin-top: clamp(3rem, 6vw, 5rem); }
+.sectionHeading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+.sectionHeading > span { flex-shrink: 0; color: var(--accent); font-family: var(--font-mono), monospace; font-size: 0.75rem; }
+.page .sectionHeading h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.2; }
+.buildGrid, .architectureGrid, .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.buildCopy { padding-block: 0.5rem; }
+.page h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.25; }
+.buildCopy p, .fieldNote > p:last-child { margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.9375rem; line-height: 1.75; }
+.contribution { margin-top: 1.75rem; }
+.photo { min-width: 0; margin: 0; }
+.photo img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }
+.photo figcaption { margin-top: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono), monospace; font-size: 0.6875rem; line-height: 1.6; }
+.architectureGrid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: center; }
+.sketch { min-width: 0; width: 100%; max-width: 36rem; margin: 0; padding: clamp(1rem, 2.5vw, 1.75rem); border: 1px solid var(--sketch-rule); border-radius: 0.75rem; background: var(--sketch-background); color: var(--sketch-foreground); }
+.sketchHeading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-family: var(--font-mono), monospace; font-size: 0.625rem; }
+.sketch svg { display: block; width: 100%; height: auto; margin-block: 1.25rem; }
+.sketch figcaption { padding-top: 0.75rem; border-top: 1px solid var(--sketch-rule); font-size: 0.75rem; }
+.fieldNote { padding-left: 1.25rem; border-left: 2px solid var(--accent); }
+.fieldNote h3 { margin-top: 0.75rem; }
+.gallery { gap: 1.5rem; }
+.gallery img { aspect-ratio: 4 / 3; object-fit: contain; background: var(--sketch-background); }
+@media (max-width: 760px) {
+  .buildGrid, .architectureGrid, .gallery { grid-template-columns: 1fr; }
+  .sketch { justify-self: center; }
+  .sectionHeading { gap: 0.75rem; }
+}
