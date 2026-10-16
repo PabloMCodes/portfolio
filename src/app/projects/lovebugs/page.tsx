@@ -12,9 +12,9 @@ function FleetSketch() {
   return <figure className={styles.sketch}>
     <div className={styles.sketchHeading}><span>Fleet architecture</span><span>Concept sketch</span></div>
     <svg viewBox="0 0 560 310" role="img" aria-labelledby="fleet-title fleet-desc">
-      <title id="fleet-title">From perception to physical movement</title><desc id="fleet-desc">A conceptual view of an overhead camera feeding centralized planning, which coordinates robots through Bluetooth. One robot is named WALL-Y.</desc>
+      <title id="fleet-title">From perception to physical movement</title><desc id="fleet-desc">A conceptual view of an overhead camera feeding centralized planning, which coordinates robots through Bluetooth.</desc>
       <g fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="190" y="20" width="180" height="48" rx="4" /><path d="M280 68v38" /><rect x="170" y="106" width="220" height="56" rx="4" /><path d="M280 162v54M100 238v-22h360v22M280 216v22" /><rect x="49" y="238" width="102" height="46" rx="4" /><rect x="229" y="238" width="102" height="46" rx="4" /><rect x="409" y="238" width="102" height="46" rx="4" /><circle cx="280" cy="216" r="4" fill="currentColor" /></g>
-      <g fill="currentColor" textAnchor="middle" fontSize="12"><text x="280" y="49">OVERHEAD CAMERA</text><text x="280" y="139">CENTRALIZED PLANNING</text><text x="365" y="192" fontSize="10">BLUETOOTH</text><text x="100" y="266">ROBOT</text><text x="280" y="266">WALL-Y</text><text x="460" y="266">ROBOT</text></g>
+      <g fill="currentColor" textAnchor="middle" fontSize="12"><text x="280" y="49">OVERHEAD CAMERA</text><text x="280" y="139">CENTRALIZED PLANNING</text><text x="365" y="192" fontSize="10">BLUETOOTH</text><text x="100" y="266">ROBOT</text><text x="280" y="266">ROBOT</text><text x="460" y="266">ROBOT</text></g>
     </svg><figcaption>Perceive. Plan. Coordinate. Move.</figcaption>
   </figure>;
 }
@@ -39,7 +39,7 @@ export default function LovebugsPage() {
       </figure>
     </article>
     <h2 className={projectStyles.storyHeading}>How it fits together</h2><FleetSketch />
-    <div className={styles.fieldNote}><span className={styles.label}>Meet WALL-Y</span><p>One of our robots was named WALL-Y. Getting the fleet running took more than code: motor noise was disconnecting the ESP32s. Investigating power behavior, adding suppression capacitors, and improving power handling helped us get reliable operation.</p></div>
+    <div className={styles.fieldNote}><span className={styles.label}>The robots</span><p>Getting the fleet running took more than code: motor noise was disconnecting the ESP32s. Investigating power behavior, adding suppression capacitors, and improving power handling helped us get reliable operation.</p></div>
     <h2 className={projectStyles.storyHeading}>From the hackathon floor</h2>
     <div className={styles.projectGallery}>
       <figure className={styles.projectPhoto}>
