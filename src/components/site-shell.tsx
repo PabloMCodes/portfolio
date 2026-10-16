@@ -1,3 +1,4 @@
+import { NavigationLink } from "@/components/hover-highlights";
 import { Container } from "@/components/container";
 import { ThemeToggle } from "@/components/theme-toggle";
 import styles from "@/app/home.module.css";
@@ -14,7 +15,7 @@ export function SiteShell({ children, currentPath }: { children: React.ReactNode
       <header className={styles.header}>
         <a href="/about" className={styles.wordmark} aria-label="Pablo Mendoza, about">pablo mendoza<span aria-hidden="true">.</span></a>
         <nav aria-label="Main navigation" className={styles.navigation}>
-          {navigation.map(([href, label]) => <a key={href} href={href} aria-current={href === currentPath ? "page" : undefined}>{label}</a>)}
+          {navigation.map(([href, label]) => <NavigationLink key={href} href={href} current={href === currentPath}>{label}</NavigationLink>)}
         </nav>
         <ThemeToggle />
       </header>

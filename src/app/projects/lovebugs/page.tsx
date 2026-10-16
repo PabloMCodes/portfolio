@@ -26,8 +26,10 @@ export default function LovebugsPage() {
       <div><p className={styles.label}>ShellHacks 2026 / Robotics</p><h1 id="lovebugs-title" className={styles.pageTitle}>Lovebugs<span className={projectStyles.accent}>.</span></h1></div>
       <p>Small robots. One coordinated fleet.<br />From overhead vision to physical movement.</p>
     </div>
+    <div className={projectStyles.detailMedia}>
     <ProjectVideo />
     <div className={projectStyles.videoCaption}><span>Lovebugs / Project demo</span><a href="#build">Explore the build ↓</a></div>
+    </div>
     <div id="build">
     <h2 className={projectStyles.storyHeading}>The build</h2>
     <article className={styles.featuredProject}><div className={styles.featuredCopy}><p className={styles.label}>ShellHacks 2026 / Robotics</p><h3>An autonomous<br />multi-robot fleet</h3><p>Physical robots, overhead vision, and centralized planning.</p><h3>My contribution</h3><p>My work connected firmware, hardware, communication, autonomous navigation, and agent orchestration into a working system.</p><ul className={styles.tags} aria-label="Fleet technologies"><li>ESP32</li><li>Computer vision</li><li>Agent orchestration</li></ul></div>

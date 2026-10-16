@@ -24,3 +24,10 @@ h2.storyHeading { margin: 4rem 0 1.5rem; }
 .card > div:has(> figure) { gap: 0.5rem; }
 .card > div:has(> figure) img { height: clamp(10rem, 15vw, 14rem); object-fit: contain; background: var(--sketch-background); }
 .card > div:has(> figure) a { border-radius: 0; }
+
+/* Keep the demo comfortably framed while retaining native fullscreen controls. */
+.detailMedia { width: min(100%, 52rem, 112svh); margin-inline: auto; }
+.grid .card:focus-within { border-color: var(--accent); }
+@media (hover: hover) {
+  .grid .card:hover { border-color: var(--accent); }
+}

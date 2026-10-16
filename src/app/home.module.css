@@ -1004,3 +1004,18 @@
     animation: none;
   }
 }
+
+/* A soft accent wash follows pointer and keyboard navigation. */
+.navigation a { position: relative; isolation: isolate; }
+.navigationHighlight {
+  position: absolute;
+  inset: 0 -0.65rem;
+  z-index: -1;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  pointer-events: none;
+}
+.navigation a:focus-visible { color: var(--accent); }
+@media (hover: hover) {
+  .navigation a:hover { color: var(--accent); }
+}
