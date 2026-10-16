@@ -45,12 +45,12 @@ export function ProjectVideo({ preview = false }: { preview?: boolean }) {
     playsInline
     controls={!preview}
     preload="none"
-    poster="/images/lovebugs-poster.jpg"
+    poster={preview ? "/images/lovebugs-preview.jpg" : "/images/lovebugs-poster.jpg"}
     aria-label="Lovebugs robot fleet demonstration"
     onPlay={() => setPlaying(true)}
     onPause={() => setPlaying(false)}
   >
-    <source src="/videos/lovebugs.mp4" type="video/mp4" />
+    <source src={preview ? "/videos/lovebugs-preview.mp4" : "/videos/lovebugs.mp4"} type="video/mp4" />
     Your browser does not support embedded video.
   </video>;
 

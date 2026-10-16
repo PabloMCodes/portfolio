@@ -1,6 +1,6 @@
 .intro { color: var(--muted-foreground); margin: -0.75rem 0 2.5rem; max-width: 42rem; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
-.grid .card { min-width: 0; padding: 1.25rem; border-radius: 1rem; overflow: hidden; }
+.grid .card { position: relative; isolation: isolate; min-width: 0; padding: 1.25rem; border-radius: 1rem; overflow: hidden; }
 .card > figure, .card > div:has(> figure), .card > .videoFrame { order: -1; margin: -1.25rem -1.25rem 1.5rem; }
 .card > figure img { aspect-ratio: 16 / 9; object-fit: cover; }
 .card > figure figcaption, .card > div:has(> figure) figcaption { padding-inline: 1.25rem; }
@@ -10,8 +10,8 @@
 .videoFrame { position: relative; overflow: hidden; border-radius: 0.75rem; background: #121820; }
 .video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .previewLink { display: block; }
-.previewBadge { position: absolute; bottom: 0.75rem; left: 0.75rem; border-radius: 999px; background: #121820e6; color: #fff; padding: 0.5rem 0.75rem; font-size: 0.7rem; }
-.playbackButton { position: absolute; top: 0.75rem; right: 0.75rem; min-height: 44px; padding: 0.4rem 0.8rem; border: 1px solid #ffffff70; border-radius: 999px; background: #121820e6; color: #fff; cursor: pointer; font-size: 0.75rem; }
+.previewBadge { position: absolute; bottom: 0.75rem; left: 0.75rem; border-radius: 999px; background: #121820e6; color: #fff; padding: 0.325rem 0.4875rem; font-size: 0.455rem; }
+.playbackButton { position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2; min-height: 28.6px; padding: 0.26rem 0.52rem; border: 1px solid #ffffff70; border-radius: 999px; background: #121820e6; color: #fff; cursor: pointer; font-size: 0.4875rem; }
 .backLink { display: inline-block; padding-block: 0.5rem; font-size: 0.875rem; }
 .detailHeading { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin: 2.5rem 0; }
 .detailHeading > p { color: var(--muted-foreground); }
@@ -31,3 +31,8 @@ h2.storyHeading { margin: 4rem 0 1.5rem; }
 @media (hover: hover) {
   .grid .card:hover { border-color: var(--accent); }
 }
+
+/* Stretch the detail link across its card; playback remains independently operable. */
+.cardLink::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 1rem; }
+.cardLink:focus-visible::after { outline: 2px solid var(--accent); outline-offset: -3px; }
+.playbackButton::after { content: ""; position: absolute; inset: -8px; }
