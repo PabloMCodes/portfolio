@@ -1,0 +1,18 @@
+.layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+.stage { position: relative; background: #202e42; color: #eadbc5; min-width: 0; }
+.viewport { height: 23rem; width: 100%; }
+.viewport canvas { display: block; width: 100%; height: 100%; }
+.hint { text-align: center; padding: 0 1rem; font-size: 0.625rem; }
+.controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; padding: 1rem; }
+.controls button, .parts button { min-height: 44px; padding: 0.4rem 0.65rem; border: 1px solid var(--sketch-rule); border-radius: 0.5rem; background: transparent; color: inherit; cursor: pointer; font-size: 0.75rem; }
+.controls button:hover, .parts button:hover, .parts button[aria-pressed="true"], .controls button[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
+.inspector { min-width: 0; padding: 1.5rem; }
+.parts { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+.parts button { border-color: var(--rule); }
+.details { min-height: 15rem; }
+.spec { font-family: var(--font-mono), monospace; color: var(--accent); font-size: 0.6875rem; margin-bottom: 0.75rem; }
+.details h3 + p { margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.7; }
+.flow { margin-top: 1rem; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: 0.75rem; color: var(--accent); }
+.caption { max-width: none; padding: 0.75rem 1.5rem; font-size: 0.6875rem; color: var(--muted-foreground); border-top: 1px solid var(--rule); }
+.fallback { position: absolute; top: 2rem; inset-inline: 1.5rem; font-size: 0.875rem; }
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } .viewport { height: 20rem; } }

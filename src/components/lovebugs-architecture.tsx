@@ -1,8 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useId, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import styles from "./lovebugs-architecture.module.css";
+
+const Hardware = dynamic(() => import("./lovebugs-hardware"), { ssr: false, loading: () => <p className={styles.scope}>Loading hardware explorer…</p> });
 
 const components = [
   { id: "agents", title: "AI agents", tech: "Google ADK · Gemini", layer: "Simulation", description: "Agents reason about tasks, communicate, manage resources, and coordinate within a shared Stardew Valley-inspired environment.", contribution: "My focus: AI agent orchestration." },
@@ -36,6 +39,7 @@ function RobotPair() {
 }
 
 export function LovebugsArchitecture() {
+  const [view, setView] = useState<"system" | "hardware">("system");
   const [selected, setSelected] = useState<ComponentId>("agents");
   const [hovered, setHovered] = useState<ComponentId | null>(null);
   const reducedMotion = useReducedMotion();
@@ -45,7 +49,11 @@ export function LovebugsArchitecture() {
   const flows = connections.filter((edge) => edge.from === active || edge.to === active);
 
   return <div className={styles.architecture}>
-    <div className={styles.layout}>
+    <div className={styles.viewControls} aria-label="Architecture view">
+      <button type="button" aria-pressed={view === "system"} onClick={() => setView("system")}>System map</button>
+      <button type="button" aria-pressed={view === "hardware"} onClick={() => setView("hardware")}>Explore hardware · 3D</button>
+    </div>
+    {view === "hardware" ? <Hardware /> : <div className={styles.layout}>
       <div className={styles.map}>
         <div className={styles.mapHeading}><span>System map</span><span>Hover or select a component</span></div>
         <div className={styles.diagram} role="group" aria-label="Explore the Love Bugs architecture">
@@ -88,7 +96,9 @@ export function LovebugsArchitecture() {
         <ul className={styles.flows} aria-label="Related information flows">{flows.map((edge) => <li key={edge.label}>{edge.label}</li>)}</ul>
         <p className={styles.contribution}>{component.contribution}</p>
       </div>
-    </div>
+    </div>}
+    <p className={styles.pipeline}>Gemini / ADK → FastAPI → navigation & control → ESP32 firmware → motors</p>
+    <p className={styles.feedback}>OpenCV / ArUco → position feedback · React / WebSockets → shared environment & agent activity</p>
     <p className={styles.scope}><strong>Simulation ≠ hardware demo.</strong> Multi-agent coordination worked in the shared simulation. The physical integration connected vision, navigation, and embedded control; not every simulated action was demonstrated on the robots.</p>
   </div>;
 }
