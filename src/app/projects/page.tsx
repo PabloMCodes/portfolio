@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       </ProjectCard>
       <ProjectCard className={`${styles.projectCard} ${projectStyles.card}`}>
         <ProjectVideo preview project="lockedin" />
-        <div><p className={styles.label}>AI productivity / Full stack</p><h3><Link href="/projects/lockedin">LockedIn</Link></h3><p>A focus platform that uses computer vision to recognize distractions during work sessions, then turns that activity into useful session insights and social leaderboards.</p></div>
+        <div><p className={styles.label}>ShellHacks 2025 / AI productivity</p><h3><Link href="/projects/lockedin">LockedIn</Link></h3><p>A focus platform that uses computer vision to recognize distractions during work sessions, then turns that activity into useful session insights and social leaderboards.</p></div>
         <ul className={styles.tags} aria-label="LockedIn technologies"><li>Next.js</li><li>FastAPI</li><li>YOLOv8</li><li>MediaPipe</li><li>Prisma</li><li>NextAuth</li></ul>
         <Link href="/projects/lockedin" className={projectStyles.cardLink}>Explore the build <span aria-hidden="true">↗</span></Link>
       </ProjectCard>
