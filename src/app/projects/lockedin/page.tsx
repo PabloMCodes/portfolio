@@ -40,12 +40,20 @@ export default function LockedInPage() {
               </div>
               <ul className={styles.tags} aria-label="LockedIn technologies"><li>Next.js</li><li>FastAPI</li><li>YOLOv8</li><li>MediaPipe</li><li>TensorFlow.js</li><li>WebSockets</li></ul>
             </div>
-            <figure className={detail.photo}>
-              <a href="/images/lockedIn.png" target="_blank" rel="noreferrer" aria-label="Open the full LockedIn dashboard screenshot in a new tab">
-                <Image src="/images/lockedIn.png" alt="LockedIn dashboard showing live phone-distraction detection, focus metrics, and a camera preview." width={2880} height={1610} sizes="(max-width: 760px) 92vw, 480px" />
-              </a>
-              <figcaption>Live distraction tracking / Open image for a closer look ↗</figcaption>
-            </figure>
+            <div className="grid gap-6">
+              <figure className={detail.photo}>
+                <a href="/images/lockedIn.png" target="_blank" rel="noreferrer" aria-label="Open the full LockedIn dashboard screenshot in a new tab">
+                  <Image src="/images/lockedIn.png" alt="LockedIn dashboard showing live phone-distraction detection, focus metrics, and a camera preview." width={2880} height={1610} sizes="(max-width: 760px) 92vw, 480px" />
+                </a>
+                <figcaption>Live distraction tracking / Open image for a closer look ↗</figcaption>
+              </figure>
+              <figure className={detail.photo}>
+                <a href="/images/shellhacks2025-group.jpg" target="_blank" rel="noreferrer" aria-label="Open the full ShellHacks 2025 team photo in a new tab">
+                  <Image src="/images/shellhacks2025-group.jpg" alt="The four-person LockedIn team posing in front of a ShellHacks backdrop surrounded by ocean-themed decorations and blue balloons." width={1600} height={1200} sizes="(max-width: 760px) 92vw, 480px" />
+                </a>
+                <figcaption>The team behind LockedIn / ShellHacks 2025 ↗</figcaption>
+              </figure>
+            </div>
           </div>
         </section>
         <section className={detail.storySection} aria-labelledby="architecture-title">
