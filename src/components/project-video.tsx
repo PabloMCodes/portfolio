@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/app/projects/projects.module.css";
 
-export function ProjectVideo({ preview = false }: { preview?: boolean }) {
+const projects = {
+  lovebugs: { name: "Lovebugs", label: "Lovebugs robot fleet demonstration", poster: "/images/lovebugs-poster.jpg", previewPoster: "/images/lovebugs-preview.jpg" },
+  lockedin: { name: "LockedIn", label: "LockedIn project trailer", poster: "/images/lockedin-poster.jpg", previewPoster: "/images/lockedin-poster.jpg" },
+};
+
+export function ProjectVideo({ preview = false, project = "lovebugs" }: { preview?: boolean; project?: keyof typeof projects }) {
+  const media = projects[project];
   const videoRef = useRef<HTMLVideoElement>(null);
   const manuallyPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
@@ -45,18 +51,18 @@ export function ProjectVideo({ preview = false }: { preview?: boolean }) {
     playsInline
     controls={!preview}
     preload="none"
-    poster={preview ? "/images/lovebugs-preview.jpg" : "/images/lovebugs-poster.jpg"}
-    aria-label="Lovebugs robot fleet demonstration"
+    poster={preview ? media.previewPoster : media.poster}
+    aria-label={media.label}
     onPlay={() => setPlaying(true)}
     onPause={() => setPlaying(false)}
   >
-    <source src={preview ? "/videos/lovebugs-preview.mp4" : "/videos/lovebugs.mp4"} type="video/mp4" />
+    <source src={`/videos/${project}${preview ? "-preview" : ""}.mp4`} type="video/mp4" />
     Your browser does not support embedded video.
   </video>;
 
   return <div className={styles.videoFrame}>
-    {preview ? <Link href="/projects/lovebugs" aria-label="Watch Lovebugs and explore the build" className={styles.previewLink}>{video}<span className={styles.previewBadge}>Watch & explore ↗</span></Link> : video}
-    {preview && <button className={styles.playbackButton} type="button" aria-label={playing ? "Pause Lovebugs preview" : "Play Lovebugs preview"} onClick={() => {
+    {preview ? <Link href={`/projects/${project}`} aria-label={`Watch ${media.name} and explore the build`} className={styles.previewLink}>{video}<span className={styles.previewBadge}>Watch & explore ↗</span></Link> : video}
+    {preview && <button className={styles.playbackButton} type="button" aria-label={`${playing ? "Pause" : "Play"} ${media.name} preview`} onClick={() => {
       const element = videoRef.current;
       if (!element) return;
       manuallyPaused.current = !element.paused;

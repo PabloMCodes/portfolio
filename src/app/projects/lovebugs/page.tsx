@@ -6,7 +6,7 @@ import { LovebugsArchitecture } from "@/components/lovebugs-architecture";
 import { ProjectVideo } from "@/components/project-video";
 import styles from "../../home.module.css";
 import projectStyles from "../projects.module.css";
-import detail from "./lovebugs.module.css";
+import detail from "../project-detail.module.css";
 
 export const metadata: Metadata = { title: "Lovebugs | Pablo Mendoza", description: "A collaborative multi-agent robotics system built at ShellHacks. Watch the demo and explore the build." };
 
