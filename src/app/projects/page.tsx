@@ -23,6 +23,12 @@ export default function ProjectsPage() {
         <ul className={styles.tags} aria-label="LockedIn technologies"><li>Next.js</li><li>FastAPI</li><li>YOLOv8</li><li>MediaPipe</li><li>Prisma</li><li>NextAuth</li></ul>
         <Link href="/projects/lockedin" className={projectStyles.cardLink}>Explore the build <span aria-hidden="true">↗</span></Link>
       </ProjectCard>
+      <ProjectCard className={`${styles.projectCard} ${projectStyles.card}`}>
+        <ProjectVideo preview project="calculus-visualizer" />
+        <div><p className={styles.label}>Education / Interactive mathematics</p><h3><Link href="/projects/calculus-visualizer">Calculus Visualizer</Link></h3><p>An educational web app that helps students explore Calculus I through interactive graphs of limits, derivatives, and integrals, with step-by-step explanations powered by Google Gemini.</p></div>
+        <ul className={styles.tags} aria-label="Calculus Visualizer technologies"><li>Python</li><li>NumPy</li><li>Plotly</li><li>JavaScript</li><li>TypeScript</li><li>React</li><li>Google Gemini</li></ul>
+        <Link href="/projects/calculus-visualizer" className={projectStyles.cardLink}>Explore the build <span aria-hidden="true">↗</span></Link>
+      </ProjectCard>
       <ProjectCard className={`${styles.projectCard} ${projectStyles.card}`}><div><p className={styles.label}>Mobile / Team project</p><h3>StudySpot</h3><p>A study-location app with interactive maps, location-aware check-ins, and live availability scoring, built and tested with a four-person team.</p></div>
         <div className={styles.studySpotGallery}>
           <figure className={styles.projectPhoto}>

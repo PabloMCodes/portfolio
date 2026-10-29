@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "@/app/projects/projects.module.css";
 
 const projects = {
+  "calculus-visualizer": { name: "Calculus Visualizer", label: "Calculus Visualizer interactive mathematics demonstration", poster: "/images/calculus-visualizer-poster.jpg", previewPoster: "/images/calculus-visualizer-poster.jpg" },
   lovebugs: { name: "Lovebugs", label: "Lovebugs robot fleet demonstration", poster: "/images/lovebugs-poster.jpg", previewPoster: "/images/lovebugs-preview.jpg" },
   lockedin: { name: "LockedIn", label: "LockedIn project trailer", poster: "/images/lockedin-poster.jpg", previewPoster: "/images/lockedin-poster.jpg" },
 };
