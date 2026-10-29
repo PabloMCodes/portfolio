@@ -24,6 +24,7 @@ export default function AboutPage() {
     <details className={styles.aboutDetails}>
       <summary>More about me <span aria-hidden="true">+</span></summary>
       <div className={styles.aboutStory}>
+        <p>I’m a first-generation college student and the son of immigrant parents.</p>
         <p>I&apos;ve worked on production software at Credit Karma and built full-stack engineering tools at NASA Kennedy Space Center, with experience spanning backend services, APIs, distributed workflows, frontend applications, and AI-assisted systems. I’m especially interested in backend and infrastructure engineering, AI/ML, and software that has to operate reliably beyond a simple demo.</p>
         <p>Outside of work, I like pushing software into the physical world. Most recently, that meant building an autonomous multi-robot system from the ground up — connecting AI agents and computer vision to navigation software, embedded firmware, and physical robots.</p>
         <p>I enjoy understanding systems deeply: tracing how data moves between services, figuring out why something fails, and working across abstractions when the problem demands it. Whether that means debugging an API or tracking down why a motor is interfering with a microcontroller, I like getting to the root of the problem and building a better solution.</p>
