@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
 import { ProjectVideo } from "@/components/project-video";
@@ -48,8 +49,16 @@ export default function CalculusVisualizerPage() {
         </section>
         <section className={detail.storySection} aria-labelledby="expo-title">
           <div className={detail.sectionHeading}><span aria-hidden="true">02 /</span><h2 id="expo-title">Sharing it at Knight Hacks Expo</h2></div>
-          <div className={detail.buildCopy}>
-            <p>I presented the application at the Knight Hacks Expo, where attendees could try it and explore the interactive mathematics functionality firsthand.</p>
+          <div className={detail.buildGrid}>
+            <div className={detail.buildCopy}>
+              <p>I presented the application at the Knight Hacks Expo, where attendees could try it and explore the interactive mathematics functionality firsthand.</p>
+            </div>
+            <figure className={detail.photo}>
+              <a href="/images/calcvisualizerdemo.jpg" target="_blank" rel="noreferrer" aria-label="Open the full Calculus Visualizer demo photo in a new tab">
+                <Image src="/images/calcvisualizerdemo.jpg" alt="A group gathered around two monitors showing the Calculus Visualizer logo and an interactive mathematical graph during a live demonstration." width={1156} height={750} sizes="(max-width: 760px) 92vw, 480px" />
+              </a>
+              <figcaption>Calculus Visualizer / Live demonstration ↗</figcaption>
+            </figure>
           </div>
         </section>
       </article>
