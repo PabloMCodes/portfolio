@@ -291,13 +291,6 @@
 .heroLead { grid-area: intro; min-width: 0; }
 .heroActions { grid-area: actions; display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; min-width: 0; }
 .heroActions .quietLink { margin-top: 0; }
-.aboutDetails { margin-top: 2.5rem; border-block: 1px solid var(--rule); }
-.aboutDetails summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; list-style: none; font-size: 0.9375rem; cursor: pointer; }
-.aboutDetails summary::-webkit-details-marker { display: none; }
-.aboutDetails summary span { font-size: 1.4rem; color: var(--accent); }
-.aboutDetails[open] summary span { transform: rotate(45deg); }
-.aboutDetails summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.aboutStory { display: grid; gap: 1.25rem; max-width: 46rem; padding-block: 0.5rem 1.75rem; color: var(--muted-foreground); font-size: 1rem; line-height: 1.75; }
 
 .portrait img,
 .nasaPhoto img,
