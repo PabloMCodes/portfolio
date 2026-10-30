@@ -2,7 +2,7 @@
 .intro { width: min(100%, 52rem, 112svh); margin: 0 auto 2rem; }
 .eyebrow { margin-top: 2.5rem; }
 .tagline { margin-top: 1.25rem; font-size: clamp(1.125rem, 2.4vw, 1.5rem); line-height: 1.4; }
-.summary { margin-top: 0.4rem; color: var(--muted-foreground); }
+.summary { margin-top: 0.4rem; color: var(--foreground); font-size: 1.125rem; line-height: 1.8; }
 .videoCaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); color: var(--muted-foreground); font-size: 0.875rem; }
 .storySection { margin-top: clamp(3rem, 6vw, 5rem); }
 .sectionHeading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
@@ -11,7 +11,7 @@
 .buildGrid, .gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
 .buildCopy { padding-block: 0.5rem; }
 .page h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.25; }
-.buildCopy p { margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.9375rem; line-height: 1.75; }
+.buildCopy p { margin-top: 0.75rem; color: var(--foreground); font-size: 1.125rem; line-height: 1.8; }
 .contribution { margin-top: 1.75rem; }
 .photo { min-width: 0; margin: 0; }
 .photo img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }

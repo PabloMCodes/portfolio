@@ -1,4 +1,4 @@
-.intro { color: var(--muted-foreground); margin: -0.75rem 0 2.5rem; max-width: 42rem; }
+.intro { color: var(--foreground); margin: -0.75rem 0 2.5rem; max-width: 42rem; font-size: 1.125rem; line-height: 1.8; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; align-items: start; }
 .grid .card { position: relative; isolation: isolate; min-width: 0; padding: 1.25rem; border-radius: 1rem; overflow: hidden; }
 .card > figure, .card > div:has(> figure), .card > .videoFrame { order: -1; margin: -1.25rem -1.25rem 1.5rem; }
@@ -14,7 +14,7 @@
 .playbackButton { position: absolute; top: 0.75rem; right: 0.75rem; z-index: 2; min-height: 28.6px; padding: 0.26rem 0.52rem; border: 1px solid #ffffff70; border-radius: 999px; background: #121820e6; color: #fff; cursor: pointer; font-size: 0.4875rem; }
 .backLink { display: inline-block; padding-block: 0.5rem; font-size: 0.875rem; }
 .detailHeading { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin: 2.5rem 0; }
-.detailHeading > p { color: var(--muted-foreground); }
+.detailHeading > p { color: var(--foreground); font-size: 1.125rem; line-height: 1.8; }
 .accent { color: var(--accent); }
 .videoCaption { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1rem; color: var(--muted-foreground); font-size: 0.875rem; border-bottom: 1px solid var(--rule); }
 h2.storyHeading { margin: 4rem 0 1.5rem; }

@@ -13,11 +13,11 @@
 .legend { margin-top: 1rem; font-size: 0.625rem; line-height: 1.6; }
 .inspector { min-width: 0; padding: clamp(1.25rem, 2.5vw, 2rem); align-self: center; }
 .layer { margin-bottom: 0.75rem; color: var(--accent); font-family: var(--font-mono), monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.04em; }
-.description { margin-top: 1rem; color: var(--muted-foreground); font-size: 0.875rem; line-height: 1.7; }
+.description { margin-top: 1rem; color: var(--foreground); font-size: 1.125rem; line-height: 1.8; }
 .flows { padding: 0; margin: 1.25rem 0; list-style: none; border-top: 1px solid var(--rule); }
-.flows li { padding-block: 0.65rem; border-bottom: 1px solid var(--rule); font-size: 0.75rem; line-height: 1.5; }
-.contribution { font-size: 0.75rem; color: var(--accent); }
-.scope { max-width: none; padding: 1rem 1.5rem; border-top: 1px solid var(--rule); font-size: 0.875rem; line-height: 1.7; color: var(--muted-foreground); }
+.flows li { padding-block: 0.65rem; border-bottom: 1px solid var(--rule); font-size: 1.125rem; line-height: 1.8; color: var(--foreground); }
+.contribution { font-size: 1.125rem; color: var(--foreground); line-height: 1.8; }
+.scope { max-width: none; padding: 1rem 1.5rem; border-top: 1px solid var(--rule); font-size: 1.125rem; line-height: 1.8; color: var(--foreground); }
 .scope strong { color: var(--foreground); font-weight: 600; }
 @media (max-width: 760px) {
   .layout { grid-template-columns: 1fr; }
@@ -28,4 +28,4 @@
 .viewControls button { min-height: 44px; padding: 0.5rem 0.85rem; border: 1px solid transparent; border-radius: 0.5rem; background: transparent; color: var(--muted-foreground); cursor: pointer; font-size: 0.875rem; }
 .viewControls button[aria-pressed="true"] { color: var(--foreground); border-color: var(--rule); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .pipeline { max-width: none; padding: 1rem 1.5rem 0; font-size: 0.75rem; border-top: 1px solid var(--rule); color: var(--accent); }
-.feedback { max-width: none; padding: 0.5rem 1.5rem 1rem; font-size: 0.875rem; color: var(--muted-foreground); }
+.feedback { max-width: none; padding: 0.5rem 1.5rem 1rem; font-size: 1.125rem; color: var(--foreground); line-height: 1.8; }

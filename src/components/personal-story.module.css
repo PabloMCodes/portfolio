@@ -15,7 +15,7 @@
 }
 .header h2 { margin-top: 0.75rem; font-size: clamp(2rem, 4vw, 3.5rem); }
 .header h2 span { color: var(--accent); }
-.intro { margin-top: 1rem; color: var(--muted-foreground); line-height: 1.75; }
+.intro { margin-top: 1rem; color: var(--foreground); line-height: 1.8; font-size: 1.125rem; }
 .timeline { position: relative; }
 .track {
   position: absolute;

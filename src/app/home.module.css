@@ -318,7 +318,9 @@
 
 .introCopy {
   max-width: 36rem;
-  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  font-size: 1.125rem;
+  color: var(--foreground);
+  line-height: 1.8;
 }
 
 .textLink {
@@ -462,8 +464,9 @@
 }
 
 .featuredCopy > p:not(.label) {
-  color: var(--project-muted);
-  font-size: 0.9375rem;
+  color: var(--project-foreground);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .tags {
@@ -531,8 +534,10 @@
   line-height: 1.15;
 }
 
-.projectCopy > p:not(.label) {
-  color: var(--muted-foreground);
+.projectCopy > p:not(.label):not(.role) {
+  color: var(--foreground);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .project .tags {
@@ -542,8 +547,9 @@
 .detailList {
   margin: 1.25rem 0 0;
   padding-left: 1.1rem;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+  color: var(--foreground);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .detailList li + li {
@@ -564,7 +570,9 @@
 }
 
 .projectCard > div > p:last-child {
-  color: var(--muted-foreground);
+  color: var(--foreground);
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 .projectCard .tags {
@@ -811,8 +819,9 @@
 
 .fieldNote p {
   margin-top: 0.75rem;
-  font-size: 0.875rem;
-  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  color: var(--foreground);
+  line-height: 1.8;
 }
 
 .footer {
