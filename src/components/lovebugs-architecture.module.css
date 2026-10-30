@@ -17,7 +17,7 @@
 .flows { padding: 0; margin: 1.25rem 0; list-style: none; border-top: 1px solid var(--rule); }
 .flows li { padding-block: 0.65rem; border-bottom: 1px solid var(--rule); font-size: 0.75rem; line-height: 1.5; }
 .contribution { font-size: 0.75rem; color: var(--accent); }
-.scope { max-width: none; padding: 1rem 1.5rem; border-top: 1px solid var(--rule); font-size: 0.75rem; line-height: 1.7; color: var(--muted-foreground); }
+.scope { max-width: none; padding: 1rem 1.5rem; border-top: 1px solid var(--rule); font-size: 0.875rem; line-height: 1.7; color: var(--muted-foreground); }
 .scope strong { color: var(--foreground); font-weight: 600; }
 @media (max-width: 760px) {
   .layout { grid-template-columns: 1fr; }
@@ -25,7 +25,7 @@
 }
 
 .viewControls { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--rule); }
-.viewControls button { min-height: 44px; padding: 0.5rem 0.85rem; border: 1px solid transparent; border-radius: 0.5rem; background: transparent; color: var(--muted-foreground); cursor: pointer; font-size: 0.8125rem; }
+.viewControls button { min-height: 44px; padding: 0.5rem 0.85rem; border: 1px solid transparent; border-radius: 0.5rem; background: transparent; color: var(--muted-foreground); cursor: pointer; font-size: 0.875rem; }
 .viewControls button[aria-pressed="true"] { color: var(--foreground); border-color: var(--rule); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .pipeline { max-width: none; padding: 1rem 1.5rem 0; font-size: 0.75rem; border-top: 1px solid var(--rule); color: var(--accent); }
-.feedback { max-width: none; padding: 0.5rem 1.5rem 1rem; font-size: 0.6875rem; color: var(--muted-foreground); }
+.feedback { max-width: none; padding: 0.5rem 1.5rem 1rem; font-size: 0.875rem; color: var(--muted-foreground); }

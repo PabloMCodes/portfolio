@@ -16,7 +16,7 @@
 .detailHeading { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin: 2.5rem 0; }
 .detailHeading > p { color: var(--muted-foreground); }
 .accent { color: var(--accent); }
-.videoCaption { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1rem; color: var(--muted-foreground); font-size: 0.75rem; border-bottom: 1px solid var(--rule); }
+.videoCaption { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1rem; color: var(--muted-foreground); font-size: 0.875rem; border-bottom: 1px solid var(--rule); }
 h2.storyHeading { margin: 4rem 0 1.5rem; }
 @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 650px) { .grid { grid-template-columns: 1fr; } .detailHeading { display: block; } .detailHeading > p { margin-top: 1.5rem; } }

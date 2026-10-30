@@ -3,7 +3,7 @@
 .eyebrow { margin-top: 2.5rem; }
 .tagline { margin-top: 1.25rem; font-size: clamp(1.125rem, 2.4vw, 1.5rem); line-height: 1.4; }
 .summary { margin-top: 0.4rem; color: var(--muted-foreground); }
-.videoCaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); color: var(--muted-foreground); font-size: 0.75rem; }
+.videoCaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 1rem; border-bottom: 1px solid var(--rule); color: var(--muted-foreground); font-size: 0.875rem; }
 .storySection { margin-top: clamp(3rem, 6vw, 5rem); }
 .sectionHeading { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
 .sectionHeading > span { flex-shrink: 0; color: var(--accent); font-family: var(--font-mono), monospace; font-size: 0.75rem; }
@@ -15,7 +15,7 @@
 .contribution { margin-top: 1.75rem; }
 .photo { min-width: 0; margin: 0; }
 .photo img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }
-.photo figcaption { margin-top: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono), monospace; font-size: 0.6875rem; line-height: 1.6; }
+.photo figcaption { margin-top: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono), monospace; font-size: 0.875rem; line-height: 1.6; }
 .gallery { gap: 1.5rem; }
 .gallery img { aspect-ratio: 4 / 3; object-fit: contain; background: var(--sketch-background); }
 @media (max-width: 760px) {

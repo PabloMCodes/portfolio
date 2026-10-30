@@ -4,7 +4,7 @@
   color-scheme: light;
   --background: #f5f0e7;
   --foreground: #211f1b;
-  --muted-foreground: #70685d;
+  --muted-foreground: #544d43;
   --rule: #d8cebd;
   --accent: #b86f2e;
   --ambient-warm: rgb(231 158 79 / 18%);
@@ -24,7 +24,7 @@
   color-scheme: dark;
   --background: #101a2b;
   --foreground: #f1e8d8;
-  --muted-foreground: #b7ac9c;
+  --muted-foreground: #d0c5b5;
   --rule: #384557;
   --accent: #efa85a;
   --ambient-warm: rgb(224 139 57 / 14%);

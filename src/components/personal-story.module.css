@@ -8,7 +8,7 @@
 .eyebrow {
   color: var(--muted-foreground);
   font-family: var(--font-mono), monospace;
-  font-size: 0.6875rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -49,7 +49,7 @@
 .photo { min-width: 0; grid-column: 2; grid-row: 1; margin: 0.25rem 0 0; }
 .chapter:nth-child(even) .photo { grid-column: 1; }
 .photo img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }
-.photo figcaption { margin-top: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono), monospace; font-size: 0.6875rem; line-height: 1.6; }
+.photo figcaption { margin-top: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono), monospace; font-size: 0.875rem; line-height: 1.6; }
 
 @media (max-width: 760px) {
   .track { left: 4px; }
