@@ -45,7 +45,7 @@
 .copy { min-width: 0; grid-column: 1; grid-row: 1; }
 .chapter:nth-child(even) .copy { grid-column: 2; }
 .copy h3 { margin-top: 0.65rem; font-size: clamp(1.5rem, 2.5vw, 2rem); line-height: 1.2; }
-.copy > p:not(.eyebrow) { margin-top: 1rem; color: var(--muted-foreground); font-size: 0.9375rem; line-height: 1.8; }
+.copy > p:not(.eyebrow) { margin-top: 1rem; color: var(--foreground); font-size: 1.125rem; line-height: 1.8; }
 .photo { min-width: 0; grid-column: 2; grid-row: 1; margin: 0.25rem 0 0; }
 .chapter:nth-child(even) .photo { grid-column: 1; }
 .photo img { display: block; width: 100%; height: auto; border-radius: 0.75rem; }
