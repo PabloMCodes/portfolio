@@ -30,7 +30,11 @@ export default function LovebugsHardware() {
     if (!element) return;
     let renderer: THREE.WebGLRenderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "low-power" }); }
-    catch { setUnavailable(true); return; }
+    catch {
+      // Report initialization failure after the effect finishes, and cancel on unmount.
+      const frame = requestAnimationFrame(() => setUnavailable(true));
+      return () => cancelAnimationFrame(frame);
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     const canvas = renderer.domElement;
     canvas.setAttribute("aria-label", "Two conceptual robots. Drag to rotate, pinch to zoom, or use the controls below. Select components using the buttons alongside the model.");
