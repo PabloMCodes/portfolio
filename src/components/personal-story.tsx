@@ -53,6 +53,10 @@ export function PersonalStory() {
           <p>I enjoy cooking and baking banana bread and cookies. I also love spending time with friends, whether we’re studying together or finding a new coffee shop.</p>
           <p>I ran cross country and track in high school, and running is still part of my life. These days, you’ll also find me at the gym, playing pickleball, or playing soccer.</p>
         </div>
+        <figure className={styles.photo}>
+          <Image src="/images/cookies-and-friends.jpg" alt="Friends gathered around a board game with a plate of cookies." width={1200} height={1600} sizes="(max-width: 760px) 85vw, (max-width: 1200px) 40vw, 480px" />
+          <figcaption>Cookies, friends, and game night</figcaption>
+        </figure>
       </StoryChapter>
     </StoryTimeline>
   </section>;
